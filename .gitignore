@@ -1,3 +1,5 @@
 node_modules/*
 SM build.esproj/*
 build.esproj/
+app/bower_components/*
+app/js/vendor/*
