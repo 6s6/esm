@@ -20,7 +20,9 @@ function middleSorter(a, b) {
     return a.title.localeCompare(b.title);
 }
 function middleFormatter(value) {
-    return "<h2>"+titleFormatter(value.title)+"</h2> <br>  "+value.description+" <br> "+sectorsFormatter(value.sectors)+" <br> "+value.lastUpdate;
+    return "<h2>"+titleFormatter(value.title)+"</h2> \
+"+wrap_show_less(value.description)+" \
+<br> "+wrap_show_less(sectorsFormatter(value.sectors))+" <br> "+value.lastUpdate;
 }
 function rightSorter(a, b) {
     return a.title.localeCompare(b.title);
@@ -83,7 +85,9 @@ var resultTableOptions = {
         {
             "left": {region: "Africa", country:"Angola", countryCode:"AGO"},
             "middle": {title: "Diagnostic Trade Integration Study - Angola",
-                description:"", sectors:["Coffee", "Cashew","Farming" , "Lorem"],lastUpdate:"Thu May 28 2015"},
+                description:"The document analyzes the current economic situation and the determinants of poverty in Angola, and it outlines policy actions in ten main areas of intervention: 1) probation; 2) demining; 3) food security and rural development; 4) HIV/AIDS; 5) Education; 6) Health; 7) Basic infrastructures; 8) professional training and employment; 9) governance; 10) macroeconomic governance. \
+The DTIS provides an overview of the current economic situation in Angola and of the main issues regarding poverty and trade. It analyses the key problems affecting infrastructures, trade regime and institutions, commercial barriers, trade facilitation and private sector development. \
+The Programme of Cooperation is aligned with the Common Country Programme Document, the National Strategy for Development and Integration 2007-2013 and the Millennium Development Goals. Hence, the goal of the Programme is to promote fair and sustainable development, social inclusion, respect of international standards and obligations in light of the integration of Albania into the European Union. Specific expected outcomes are identified within four main areas of intervention: governance and rule of law, economy and environment, regional and local development, inclusive and social policy.", sectors:["Coffee", "Cashew","Farming" , "Lorem", "sector1", "sector2", "sector3", "sector4", "sector5", "sector6", "sector7", "sector8"],lastUpdate:"Thu May 28 2015"},
             "right": {type: "UNAAF",
                 year:2006, implementationPeriod:"impl xxx"}
 
