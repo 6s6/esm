@@ -6579,7 +6579,7 @@ div.text-container {
 }
 .short-detail-page-text {
   overflow: hidden;
-  height: 25em;
+  height: 15em;
 }
 .show-more {
   padding: 10px 0;
