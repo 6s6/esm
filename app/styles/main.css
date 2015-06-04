@@ -6568,11 +6568,23 @@ div.text-container {
   width: 75%;
 }
 .text-content {
-  line-height: 1em;
+  line-height: 1.2em;
 }
 .short-text {
   overflow: hidden;
   height: 5em;
+  position: relative;
+}
+.short-text:after {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  width: 100%;
+  content: "";
+  background: linear-gradient(to top, #ffffff 20%, rgba(255, 255, 255, 0) 80%);
+  pointer-events: none;
+  /* so the text is still selectable */
 }
 .full-text {
   height: auto;
