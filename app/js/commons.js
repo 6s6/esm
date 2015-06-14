@@ -1,52 +1,56 @@
 function wrap_show_less(value){
     return " <div class=\"text-container\"> \
-<div class=\"text-content short-text\">  "+value+" </div> \
-<div class=\"show-more\"> \
-  <a href=\"#\">Show more</a> \
+<div class=\"text-content eval-text\">  "+value+" </div> \
+<div class=\"show-more \"> \
+  <div class='rounded-box'> <a style='margin:10px;' href=\"#\">show more</a></div> \
  </div></div> ";
 }
 
 function evaluate_show_less(toggle_classes){
-    $(".show-more a").each(function() {
-    var $link = $(this);
-    var $content = $link.parent().prev("div.text-content");
+    $(".show-more .rounded-box a").each(function() {
+        var $link = $(this);
+        var $content = $link.parent().parent().prev("div.text-content");
+        var $title = $link.parent().parent().parent().parent().find("h2.middle-column-title").first();
+        console.log($link.parent().parent().parent().parent().parent().parent().find("div.first-colum-first-row").first().css('padding-top', ($title[0].clientHeight-7)+"px"));
+        console.log("cH", $title[0].clientHeight-12); //
+        console.log($link);
+        console.log($content.first().position());
 
-    console.log($link);
+        var visibleHeight = $content[0].clientHeight;
+        var actualHide = $content[0].scrollHeight - 1;
 
-    var visibleHeight = $content[0].clientHeight;
-    var actualHide = $content[0].scrollHeight - 1;
+        console.log("aH",actualHide,"vH", visibleHeight);
 
-    console.log(actualHide);
-    console.log(visibleHeight);
+        if (actualHide > visibleHeight) {
+            $content.first().addClass("short-text");
+            $link.show();
 
-    if (actualHide > visibleHeight) {
-        $link.show();
-    } else {
-        $link.hide();
+        } else {
+            $link.hide();
+        }
+    });
+
+    $(".show-more .rounded-box a").on("click", function() {
+        var $link = $(this);
+        var $content = $link.parent().parent().prev("div.text-content");
+        var linkText = $link.text();
+
+        $content.toggleClass(toggle_classes);
+
+        $link.text(getShowLinkText(linkText));
+
+        return false;
+    });
+
+    function getShowLinkText(currentText) {
+        var newText = '';
+
+        if (currentText.toUpperCase() === "SHOW MORE") {
+            newText = "show less";
+        } else {
+            newText = "show more";
+        }
+
+        return newText;
     }
-});
-
-$(".show-more a").on("click", function() {
-    var $link = $(this);
-    var $content = $link.parent().prev("div.text-content");
-    var linkText = $link.text();
-
-    $content.toggleClass(toggle_classes);
-
-    $link.text(getShowLinkText(linkText));
-
-    return false;
-});
-
-function getShowLinkText(currentText) {
-    var newText = '';
-
-    if (currentText.toUpperCase() === "SHOW MORE") {
-        newText = "Show less";
-    } else {
-        newText = "Show more";
-    }
-
-    return newText;
-}
 }

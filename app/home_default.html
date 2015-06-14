@@ -309,7 +309,7 @@
                           <option value="2">2</option>
 
                           </select>
-                        <table class="table table-default table-striped table-sortable" data-show-columns="true"
+                        <table class="table table-default table-sortable table-no-hover table-disable-hover" data-show-columns="true"
                                data-sort-name="name" data-sort-order="desc">
                             <thead>
                             <tr>
@@ -319,14 +319,6 @@
                                 </th>
                                 <th class="col-xs-4">
                                 </th>
-                                <!-- <th class="col-xs-1"> -->
-                                <!-- </th> -->
-                                <!-- <th class="col-xs-2"> -->
-                                <!-- </th> -->
-                                <!-- <th class="col-xs-2"> -->
-                                <!-- </th> -->
-                                <!-- <th class="col-xs-4"> -->
-                                <!-- </th> -->
                             </tr>
                             </thead>
                             <tbody>
@@ -460,8 +452,10 @@
                     function() { // callback function that runs after the animation (optional)
                         console.log('done!')
                     }
-            );
+    );
+    $('.results-table').collapse('toggle');
     evaluate_show_less("short-text full-text");
+
     });
 
     });
