@@ -5,13 +5,24 @@ function titleFormatter(value){
 
 }
 function sectorsFormatter(value){
-    function row(row_data){return "<div class='row' style='margin-left: -38px;'>"+row_data+"</div>";}
+
+    function row(row_data){return "<div class='row' style='margin-left: -38px;margin-bottom: 10px;'>"+row_data+"</div>";}
     function extractRowData(value){
         return value.map(function(s){return "<div class='col-sm-2'><div class=\"label label-default label-table col-sm-2\"><div class=\" \">"+s+"</div></div></div>";}).join(" ");
     }
-    var r_0=row("<ul id=\"grid\">" +extractRowData(value.slice(0,6))+"</ul> ");
-    var all_rows=[r_0];
- return "<div class=\"container-fluid\">"+all_rows.join("")+" </div>";
+    function r(i){
+        console.log(i);
+        return row("<ul id=\"grid\">" +extractRowData(i)+"</ul> ");}
+
+
+    var i,j,temparray=[],chunk = 6;
+for (i=0,j=value.length; i<j; i+=chunk) {
+    temparray.push(value.slice(i,i+chunk));
+    // do whatever
+}
+console.log("temparray", temparray);
+
+ return "<div class=\"container-fluid\">"+temparray.map(r).join("")+" </div>";
 
 
     //return value.map(function(s){return "<span class=\"label label-default label-table\">"+s+"</span>";}).join(" ");

@@ -6589,12 +6589,12 @@ div.text-container {
 }
 .eval-sectors {
   overflow: hidden;
-  height: 5em;
+  height: 4em;
 }
 .short-text {
   border-bottom: 1px solid #bbbbbb;
   overflow: hidden;
-  height: 10em;
+  height: 8em;
   position: relative;
 }
 .short-text:after {
@@ -6668,7 +6668,8 @@ div.text-container {
   background-color: white;
 }
 .label {
-  line-height: 3;
+  line-height: 2;
   width: 100%;
+  border-radius: .75em;
 }
 /*# sourceMappingURL=main.css.map */
