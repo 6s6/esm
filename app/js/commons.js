@@ -1,6 +1,6 @@
-function wrap_show_less(value){
+function wrap_show_less(css, value){
     return " <div class=\"text-container\"> \
-<div class=\"text-content eval-text\">  "+value+" </div> \
+<div class=\"text-content "+css+"\">  "+value+" </div> \
 <div class=\"show-more \"> \
   <div class='rounded-box'> <a style='margin:10px;' href=\"#\">show more</a></div> \
  </div></div> ";

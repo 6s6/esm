@@ -5,7 +5,16 @@ function titleFormatter(value){
 
 }
 function sectorsFormatter(value){
-    return value.map(function(s){return "<span class=\"label label-default\">"+s+"</span>";}).join(" ");
+    function row(row_data){return "<div class='row' style='margin-left: -38px;'>"+row_data+"</div>";}
+    function extractRowData(value){
+        return value.map(function(s){return "<div class='col-sm-2'><div class=\"label label-default label-table col-sm-2\"><div class=\" \">"+s+"</div></div></div>";}).join(" ");
+    }
+    var r_0=row("<ul id=\"grid\">" +extractRowData(value.slice(0,6))+"</ul> ");
+    var all_rows=[r_0];
+ return "<div class=\"container-fluid\">"+all_rows.join("")+" </div>";
+
+
+    //return value.map(function(s){return "<span class=\"label label-default label-table\">"+s+"</span>";}).join(" ");
 
 
 }
@@ -30,7 +39,7 @@ function leftFormatter(value) {
     var c=countryFormatter(value.country);
     var cc=countryCodeFormatter(value.countryCode);
     return "<div class='first-colum-first-row' ><span class='table-row-title'>Region</span><span style='float:right' class='table-value boldi' >"+t+"</span></div> \
-<div  style='margin-top:8px;'><span class='table-row-title'>Country:</span><div style='float:right'> \
+<div  style='margin-top:8px;' class='first-colum-first-row'><span class='table-row-title'>Country:</span><div style='float:right'> \
 <span  class='table-value boldi'> "+c+"</span> \
 <span style='color:black;' class='table-value boldi'>"+cc+"</span> \
 </div></div> \
@@ -41,8 +50,8 @@ function middleSorter(a, b) {
 }
 function middleFormatter(value) {
     return "<div class='middle-column'><h2 class='middle-column-title'>"+titleFormatter(value.title)+"</h2> \
-"+wrap_show_less(value.description)+" \
-<h3 class='middle-column-sectors'>Sectors:</h3> "+wrap_show_less(sectorsFormatter(value.sectors))+"<hr class='middle'>";
+"+wrap_show_less("eval-text", value.description)+" \
+<h3 class='middle-column-sectors'>Sectors:</h3> "+wrap_show_less("eval-sectors", sectorsFormatter(value.sectors))+"<hr class='middle'>";
 }
 function rightSorter(a, b) {
     return a.title.localeCompare(b.title);
@@ -92,7 +101,7 @@ var resultTableOptions = {
             "middle": {title: "Diagnostic Trade Integration Study - Angola",
                 description:"The document analyzes the current economic situation and the determinants of poverty in Angola, and it outlines policy actions in ten main areas of intervention: 1) probation; 2) demining; 3) food security and rural development; 4) HIV/AIDS; 5) Education; 6) Health; 7) Basic infrastructures; 8) professional training and employment; 9) governance; 10) macroeconomic governance. \
 The DTIS provides an overview of the current economic situation in Angola and of the main issues regarding poverty and trade. It analyses the key problems affecting infrastructures, trade regime and institutions, commercial barriers, trade facilitation and private sector development. \
-The Programme of Cooperation is aligned with the Common Country Programme Document, the National Strategy for Development and Integration 2007-2013 and the Millennium Development Goals. Hence, the goal of the Programme is to promote fair and sustainable development, social inclusion, respect of international standards and obligations in light of the integration of Albania into the European Union. Specific expected outcomes are identified within four main areas of intervention: governance and rule of law, economy and environment, regional and local development, inclusive and social policy.", sectors:["Coffee", "Cashew","Farming" , "Lorem", "sector1", "sector2", "sector3", "sector4", "sector5", "sector6", "sector7", "sector8"]
+The Programme of Cooperation is aligned with the Common Country Programme Document, the National Strategy for Development and Integration 2007-2013 and the Millennium Development Goals. Hence, the goal of the Programme is to promote fair and sustainable development, social inclusion, respect of international standards and obligations in light of the integration of Albania into the European Union. Specific expected outcomes are identified within four main areas of intervention: governance and rule of law, economy and environment, regional and local development, inclusive and social policy.", sectors:["Coffee", "Cashew","Farming" , "Lorem", "sector1", "sector2", "sector3", "sector4", "sector5", "sector6", "sector7", "sector8","Coffee", "Cashew","Farming" , "Lorem", "sector1", "sector2", "sector3", "sector4", "sector5", "sector6", "sector7", "sector8"]
 
             },
             "right": {type: "UNAAF",
