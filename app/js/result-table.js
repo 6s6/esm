@@ -45,7 +45,7 @@ function leftFormatter(value) {
 <span  class='table-value boldi'> "+c+"</span> \
 <span style='color:black;' class='table-value boldi'>"+cc+"</span> \
 </div></div> \
-<div style='margin-top:18px;padding:10px;border:1px solid rgb(187, 187, 187);'><img src='http://localhost:9001/img/maps/"+value.region+".png' width='100%'></div>";
+<div style='margin-top:18px;padding:10px;border:1px solid rgb(187, 187, 187);'><img src='/img/maps/"+value.region+".png' width='100%'></div>";
 }
 function middleSorter(a, b) {
     return a.title.localeCompare(b.title);
