@@ -9,7 +9,7 @@
 @itc-green: #95a644;
 @itc-lightblue: #cadff2;
 @itc-light-yellow-bg: #fcf7e4;
-@soft-blue: #ACC4DB;
+@soft-blue: #97BFE6;
 
 @import "lesshat";
 @import "bootstrap/less/variables";
@@ -1612,18 +1612,26 @@ html, body {
   }
 
 .table-row-title{
-  font-size: 15px;
-//  line-height: 15px;
+  font-size: 16px;
+  font-weight:lighter;
+  line-height: 3;
+  color:@itc-navyblue;
+  }
+.left-table-row-title{
+  font-size: 16px;
+  font-weight:lighter;
+//  line-height: 3;
   color:@itc-navyblue;
   }
 .table-value{
-  font-size: 14px;
+  font-size: 16px;
 //  line-height: 27px;
   color:@itc-cyan;
   }
 
 .boldi{
   font-weight: bold;
+//  line-height:3;
 }
 
 .table-title{
@@ -1767,6 +1775,10 @@ border-radius: 0px 0px 10px 10px;
 }
 
 .first-colum-first-row{
+//        border-bottom:1px solid @itc-cyan;
+        padding-bottom:3px;
+}
+.left-first-colum-first-row{
         border-bottom:1px solid @itc-cyan;
         padding-bottom:3px;
 }
@@ -1785,3 +1797,36 @@ background-color:white;
         width:100%;
         border-radius: .75em;
         }
+.label-type{
+	font-size: 21px;
+        background-color:@itc-cyan;
+        font-weight: lighter;
+        line-height:1;
+        padding:14px;
+        padding-top:7px;
+        padding-bottom:7px;
+        border-radius: 0.45em;
+        }
+.hr-table-column{
+  margin-top: -11px;
+
+border-top:1px solid @itc-cyan;
+
+}
+.middle-column-sectors{
+border-bottom:1px solid @itc-cyan;
+color:@itc-cyan;
+font-size:20px;
+}
+
+.last-update-div{
+  margin-top: 50px;
+  float: right;
+}
+.last-update-value{
+font-style: italic;
+}
+.last-update{
+font-style: italic;
+color:gray;
+}

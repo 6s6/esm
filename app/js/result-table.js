@@ -5,29 +5,20 @@ function titleFormatter(value){
 
 }
 function sectorsFormatter(value){
-
     function row(row_data){return "<div class='row' style='margin-left: -38px;margin-bottom: 10px;'>"+row_data+"</div>";}
     function extractRowData(value){
         return value.map(function(s){return "<div class='col-sm-2'><div class=\"label label-default label-table col-sm-2\"><div class=\" \">"+s+"</div></div></div>";}).join(" ");
     }
     function r(i){
-        console.log(i);
-        return row("<ul id=\"grid\">" +extractRowData(i)+"</ul> ");}
-
-
+        return row("<ul id=\"grid\">" +extractRowData(i)+"</ul> ");
+    }
     var i,j,temparray=[],chunk = 6;
-for (i=0,j=value.length; i<j; i+=chunk) {
-    temparray.push(value.slice(i,i+chunk));
-    // do whatever
-}
-console.log("temparray", temparray);
+    for (i=0,j=value.length; i<j; i+=chunk) {
+        temparray.push(value.slice(i,i+chunk));
+        // do whatever
+    }
 
- return "<div class=\"container-fluid\">"+temparray.map(r).join("")+" </div>";
-
-
-    //return value.map(function(s){return "<span class=\"label label-default label-table\">"+s+"</span>";}).join(" ");
-
-
+    return "<div class=\"container-fluid\">"+temparray.map(r).join("")+" </div>";
 }
 function regionFormatter(value) {
     return value;
@@ -40,8 +31,8 @@ function countryCodeFormatter(value) {
 }
 
 function typeFormatter(value){
-    return "<span class=\"label label-default\">"+value+"</span>";
-    }
+    return "<span class=\"label label-default label-type\" >"+value+"</span>";
+}
 function leftSorter(a, b) {
     return a.country.localeCompare(b.country);
 }
@@ -49,8 +40,8 @@ function leftFormatter(value) {
     var t=regionFormatter(value.region);
     var c=countryFormatter(value.country);
     var cc=countryCodeFormatter(value.countryCode);
-    return "<div class='first-colum-first-row' ><span class='table-row-title'>Region</span><span style='float:right' class='table-value boldi' >"+t+"</span></div> \
-<div  style='margin-top:8px;' class='first-colum-first-row'><span class='table-row-title'>Country:</span><div style='float:right'> \
+    return "<div class='left-first-colum-first-row' ><span class='left-table-row-title'>Region</span><span style='float:right' class='table-value boldi' >"+t+"</span></div> \
+<div  style='margin-top:8px;' class='left-first-colum-first-row'><span class='left-table-row-title'>Country:</span><div style='float:right'> \
 <span  class='table-value boldi'> "+c+"</span> \
 <span style='color:black;' class='table-value boldi'>"+cc+"</span> \
 </div></div> \
@@ -62,7 +53,7 @@ function middleSorter(a, b) {
 function middleFormatter(value) {
     return "<div class='middle-column'><h2 class='middle-column-title'>"+titleFormatter(value.title)+"</h2> \
 "+wrap_show_less("eval-text", value.description)+" \
-<h3 class='middle-column-sectors'>Sectors:</h3> "+wrap_show_less("eval-sectors", sectorsFormatter(value.sectors))+"<hr class='middle'>";
+<h3 class='middle-column-sectors'>Sectors:</h3> "+wrap_show_less("eval-sectors", sectorsFormatter(value.sectors));
 }
 function rightSorter(a, b) {
     return a.title.localeCompare(b.title);
@@ -71,9 +62,14 @@ function rightFormatter(value) {
     var t=typeFormatter(value.type);
     var year=+value.year;
     var iP= value.implementationPeriod;
-    return "<div class='table-type ' style='margin-top:8px;'>Type<span style='float:right' class='table-type'>"+t+"</span></div> \
-<p class='table-type' style='margin-top:8px;'>Year:<span style='float:right'>"+year+"</span></p> \
-<hr><p style='margin-top:8px;'>Implementation Period: <span style='float:right'>"+iP+"</span></p><br> "+value.lastUpdate+"</div>;"
+    return "<div class='first-colum-first-row' style='padding-top:20px;'><span class='table-row-title'>Type: </span><span style='float:right' class='table-value ' >"+t+"</span><hr class='hr-table-column'></div> \
+<div   class='left-first-colum-first-row'><span class='left-table-row-title'>Year:</span><div style='float:right'> \
+<span  class='table-value boldi'> "+year+"</span> \
+</div></div> \
+<div   class='left-first-colum-first-row'><span class='left-table-row-title'>Period:</span><div style='float:right'> \
+<span  class='table-value boldi'> "+iP+"</span> \
+</div></div> \
+<div class='last-update-div'> <span class='last-update'>last update: </span><span class='last-update-value'>"+value.lastUpdate+"</span></div></div>"
 
 
 }
@@ -116,7 +112,7 @@ The Programme of Cooperation is aligned with the Common Country Programme Docume
 
             },
             "right": {type: "UNAAF",
-                year:2006, implementationPeriod:"impl xxx",lastUpdate:"Thu May 28 2015"}
+                year:2006, implementationPeriod:"2008-2012",lastUpdate:"Thu May 28 2015"}
 
         },
         {
@@ -126,7 +122,7 @@ The Programme of Cooperation is aligned with the Common Country Programme Docume
             },
 
             "right": {type: "UNAAF",
-                year:2005, implementationPeriod:"impl yyy",lastUpdate:"Fry Jul 13 2012"}
+                year:2005, implementationPeriod:"2008-2012",lastUpdate:"Fry Jul 13 2012"}
         },
 
 
@@ -175,11 +171,11 @@ $resultTable.bootstrapTable(resultTableOptions);
 var $tableHeadings = $resultTable.find('thead tr th');
 
 $.each(resultTableOptions.columns, function(columnIdx, columnData){
-	var $header = $($tableHeadings.get(columnIdx));
-	$header.tooltip({
-		title: columnData.description,
-		container:$resultTableContainer
-	});
+    var $header = $($tableHeadings.get(columnIdx));
+    $header.tooltip({
+	title: columnData.description,
+	container:$resultTableContainer
+    });
 });
 $('.fixed-table-toolbar').prepend($('.pagination-detail').html()).addClass('text-muted');
 $('#sorter').on('change', function() {
@@ -190,23 +186,23 @@ $('#sorter').on('change', function() {
         r.showHeader=true;
         r.showRefresh=false;
         r.data=[
-        {
-            "left": {region: "Africa", country:"Angola", countryCode:"AGO"},
-            "middle": {title: "Diagnostic Trade Integration Study - Angola",
-                description:"", sectors:["Coffee", "Cashew","Farming" , "Lorem"]
-            },
-            "right": {type: "UNAAF",
-                year:2006, implementationPeriod:"impl xxx",lastUpdate:"Thu May 28 2015"}
+            {
+                "left": {region: "Africa", country:"Angola", countryCode:"AGO"},
+                "middle": {title: "Diagnostic Trade Integration Study - Angola",
+                    description:"", sectors:["Coffee", "Cashew","Farming" , "Lorem"]
+                },
+                "right": {type: "UNAAF",
+                    year:2006, implementationPeriod:"2008-2012",lastUpdate:"Thu May 28 2015"}
 
-            // "region": "Africa",
-            // "country": "Angola",
-            // "year":2006,
-            // "type":"UNAAF",
-            // "title":"Diagnostic Trade Integration Study - Angola",
-            // "sectors":["Coffee", "Cashew","Farming" , "Lorem"],
-            // "description":"",
+                // "region": "Africa",
+                // "country": "Angola",
+                // "year":2006,
+                // "type":"UNAAF",
+                // "title":"Diagnostic Trade Integration Study - Angola",
+                // "sectors":["Coffee", "Cashew","Farming" , "Lorem"],
+                // "description":"",
 
-        }];
+            }];
         r.showColumns= true;        console.log(1, r);
     }else if(this.value=="2"){
         r.showHeader=false;
