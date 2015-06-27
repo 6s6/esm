@@ -1769,6 +1769,8 @@ border-radius: 0px 0px 10px 10px;
 
 }
 .middle-column-title{
+
+
         padding-bottom:10px;
         border-bottom:2px solid @itc-cyan;
 
@@ -1829,4 +1831,49 @@ font-style: italic;
 .last-update{
 font-style: italic;
 color:gray;
+}
+
+
+
+
+@media(max-width: 760px){
+.label{
+  display: block;
+// padding-bottom:20px;
+ margin-bottom: 4px;
+
+}
+
+}
+
+
+@media (max-width: @screen-phone){
+.label{
+ display: block;
+ margin-bottom:10px;
+}
+.label-type{
+        font-size: 11px;
+        background-color:@itc-cyan;
+        font-weight: lighter;
+        line-height:1;
+        padding:7px;
+        border-radius: 0.45em;
+        }
+.middle-column{
+        margin-right: 10px;
+        margin-left: 10px;
+        }
+.middle-column-title{
+        padding-bottom:10px;
+        border-bottom:1px solid @itc-cyan;
+        font-size: 16px;
+}
+
+.table-value{
+font-size: 12px;
+}
+.left-table-row-title {
+  font-size: 14       px;
+}
 }

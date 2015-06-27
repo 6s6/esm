@@ -5,14 +5,27 @@ function titleFormatter(value){
 
 }
 function sectorsFormatter(value){
+    var screen_bigger=$( window ).width()>760;
+    var chunk=3;
+    var css_class="col-sm-4";
+    if(screen_bigger){
+        chunk=6;
+        css_class="col-sm-2";
+
+    }
+
+//    alert(more_bigger);
     function row(row_data){return "<div class='row' style='margin-left: -38px;margin-bottom: 10px;'>"+row_data+"</div>";}
     function extractRowData(value){
-        return value.map(function(s){return "<div class='col-sm-2'><div class=\"label label-default label-table col-sm-2\"><div class=\" \">"+s+"</div></div></div>";}).join(" ");
+
+        return value.map(function(s){return "<div class='"+css_class+"'><div class=\"label label-default label-table "+css_class+"\"><div class=\" \">"+s+"</div></div></div>";}).join(" ");
     }
     function r(i){
         return row("<ul id=\"grid\">" +extractRowData(i)+"</ul> ");
     }
-    var i,j,temparray=[],chunk = 6;
+
+
+    var i,j,temparray=[];
     for (i=0,j=value.length; i<j; i+=chunk) {
         temparray.push(value.slice(i,i+chunk));
         // do whatever
@@ -77,10 +90,33 @@ function yearFormatter(value){
     return value;
 }
 
-var resultTableOptions = {
-    method: 'get',
+var data=[
+    {
+            left: {region: "Europe", country:"Spain", countryCode:"ESP"},
+            middle: {title: "ESP-Diagnostic Trade Integration Study - Espain",
+                description:"The document analyzes the current economic situation and the determinants of poverty in Angola, and it outlines policy actions in ten main areas of intervention: 1) probation; 2) demining; 3) food security and rural development; 4) HIV/AIDS; 5) Education; 6) Health; 7) Basic infrastructures; 8) professional training and employment; 9) governance; 10) macroeconomic governance. \
+The DTIS provides an overview of the current economic situation in Angola and of the main issues regarding poverty and trade. It analyses the key problems affecting infrastructures, trade regime and institutions, commercial barriers, trade facilitation and private sector development. \
+The Programme of Cooperation is aligned with the Common Country Programme Document, the National Strategy for Development and Integration 2007-2013 and the Millennium Development Goals. Hence, the goal of the Programme is to promote fair and sustainable development, social inclusion, respect of international standards and obligations in light of the integration of Albania into the European Union. Specific expected outcomes are identified within four main areas of intervention: governance and rule of law, economy and environment, regional and local development, inclusive and social policy.", sectors:["Coffee", "Cashew","Farming" , "Lorem", "sector1", "sector2", "sector3", "sector4", "sector5", "sector6", "sector7", "sector8","Coffee", "Cashew","Farming" , "Lorem", "sector1", "sector2", "sector3", "sector4", "sector5", "sector6", "sector7", "sector8"]
+
+            },
+            right: {type: "UNAAF",
+                year:2003, implementationPeriod:"2007-2010",lastUpdate:"Thu May 28 2015"}
+
+    },
+    {
+            left: {region: "Africa", country:"Benin", countryCode:"BEN"},
+            middle: {title: "Diagnostic Trade Integration Study - Benin",
+                description:"Agro-Processing Industry, Cashew, Cotton, Fisheries, Pineapple, Shea, Shrimp Farming,Tourism,Agro-Processing Industry, Cashew, Cotton, Fisheries, Pineapple, Shea, Shrimp Farming,Tourism", sectors:["Coffee", "Cashew","Farming" , "Lorem"]
+            },
+
+            right: {type: "UNAAF",
+                year:2005, implementationPeriod:"2008-2012",lastUpdate:"Fry Jul 13 2012"}
+        }];
+
+function resultTableOptions(the_data){
+    return {
+        method:'get',
     cache: false,
-    //            height: 400,
     striped: false,
     pagination: true,
     pageSize: 5,
@@ -94,7 +130,6 @@ var resultTableOptions = {
     iconsPrefix: 'fa',
     toolbar: '#custom-toolbar',
     toolbarAlign: "right",
-    //	sortName: "region",
     icons: {
 	paginationSwitchDown: 'fa-collapse-down icon-chevron-down',
 	paginationSwitchUp: 'fa-collapse-up icon-chevron-up',
@@ -102,31 +137,7 @@ var resultTableOptions = {
 	toggle: 'fa-list-alt icon-list-alt',
 	columns: 'fa-th icon-th'
     },
-    data:[
-        {
-            "left": {region: "Africa", country:"Angola", countryCode:"AGO"},
-            "middle": {title: "Diagnostic Trade Integration Study - Angola",
-                description:"The document analyzes the current economic situation and the determinants of poverty in Angola, and it outlines policy actions in ten main areas of intervention: 1) probation; 2) demining; 3) food security and rural development; 4) HIV/AIDS; 5) Education; 6) Health; 7) Basic infrastructures; 8) professional training and employment; 9) governance; 10) macroeconomic governance. \
-The DTIS provides an overview of the current economic situation in Angola and of the main issues regarding poverty and trade. It analyses the key problems affecting infrastructures, trade regime and institutions, commercial barriers, trade facilitation and private sector development. \
-The Programme of Cooperation is aligned with the Common Country Programme Document, the National Strategy for Development and Integration 2007-2013 and the Millennium Development Goals. Hence, the goal of the Programme is to promote fair and sustainable development, social inclusion, respect of international standards and obligations in light of the integration of Albania into the European Union. Specific expected outcomes are identified within four main areas of intervention: governance and rule of law, economy and environment, regional and local development, inclusive and social policy.", sectors:["Coffee", "Cashew","Farming" , "Lorem", "sector1", "sector2", "sector3", "sector4", "sector5", "sector6", "sector7", "sector8","Coffee", "Cashew","Farming" , "Lorem", "sector1", "sector2", "sector3", "sector4", "sector5", "sector6", "sector7", "sector8"]
-
-            },
-            "right": {type: "UNAAF",
-                year:2006, implementationPeriod:"2008-2012",lastUpdate:"Thu May 28 2015"}
-
-        },
-        {
-            "left": {region: "Africa", country:"Benin", countryCode:"BEN"},
-            "middle": {title: "Diagnostic Trade Integration Study - Benin",
-                description:"Agro-Processing Industry, Cashew, Cotton, Fisheries, Pineapple, Shea, Shrimp Farming,Tourism,Agro-Processing Industry, Cashew, Cotton, Fisheries, Pineapple, Shea, Shrimp Farming,Tourism", sectors:["Coffee", "Cashew","Farming" , "Lorem"]
-            },
-
-            "right": {type: "UNAAF",
-                year:2005, implementationPeriod:"2008-2012",lastUpdate:"Fry Jul 13 2012"}
-        },
-
-
-    ],
+    data:the_data ,
     columns: [
         {
 	    field: "left",
@@ -163,13 +174,14 @@ The Programme of Cooperation is aligned with the Common Country Programme Docume
             class:"col-md-3"
 	},
     ]
-};
+};}
 var $resultTableContainer = $('.results-table');
 var $resultTable = $resultTableContainer.find('table');
-$resultTable.bootstrapTable(resultTableOptions);
+$resultTable.bootstrapTable(resultTableOptions(data));
 
 var $tableHeadings = $resultTable.find('thead tr th');
 
+/*
 $.each(resultTableOptions.columns, function(columnIdx, columnData){
     var $header = $($tableHeadings.get(columnIdx));
     $header.tooltip({
@@ -177,41 +189,91 @@ $.each(resultTableOptions.columns, function(columnIdx, columnData){
 	container:$resultTableContainer
     });
 });
+*/
 $('.fixed-table-toolbar').prepend($('.pagination-detail').html()).addClass('text-muted');
+
+function is_asc(order_id){
+    if(order_id==="asc"){
+        return true;
+    }else{
+        return false;
+    }
+
+}
+function compare_strings(place, data_id, asc){
+    return function (a, b) {
+        if(asc){
+            return a[place][data_id].localeCompare(b[place][data_id]);
+        }else{
+            return b[place][data_id].localeCompare(a[place][data_id]);
+        }
+        };
+}
+
+function compare_numbers(place, data_id, asc){
+    return function (a, b) {
+        if(asc){
+            return a[place][data_id] - b[place][data_id];
+        }else{
+            return b[place][data_id] - a[place][data_id];
+        }
+        };
+}
+
+function order_by(id, asc){
+    if(id==="region"){
+        data.sort(compare_strings("left", id, asc));
+        return data;
+    }else if(id==="country"){
+        data.sort(compare_strings("left", id, asc));
+        return data;
+    }else if(id==="countryCode"){
+        data.sort(compare_strings("left", id, asc));
+        return data;
+    }else if(id==="title"){
+        data.sort(compare_strings("middle", id, asc));
+        return data;
+    }else if(id==="year"){
+        data.sort(compare_numbers("right", id, asc));
+        return data;
+
+
+    }else if(id==="implementationPeriod"){
+        data.sort(compare_strings("right", id, asc));
+        return data;
+    }else if(id==="lastUpdate"){
+        data.sort(compare_strings("right", id, asc));
+        return data;
+    }else{
+        console.error("error: this id is not allowed: "+id);
+    }
+}
 $('#sorter').on('change', function() {
     var r={};
-    $.extend(true, r , resultTableOptions);
+    $.extend(true, r , resultTableOptions(data));
+//        r.showHeader=true;
+ //       r.showRefresh=false;
+//        r.data=data;
+//        r.showColumns= true;
+    //        alert("value_selected:"+ this.value);
 
-    if(this.value=="1"){
-        r.showHeader=true;
-        r.showRefresh=false;
-        r.data=[
-            {
-                "left": {region: "Africa", country:"Angola", countryCode:"AGO"},
-                "middle": {title: "Diagnostic Trade Integration Study - Angola",
-                    description:"", sectors:["Coffee", "Cashew","Farming" , "Lorem"]
-                },
-                "right": {type: "UNAAF",
-                    year:2006, implementationPeriod:"2008-2012",lastUpdate:"Thu May 28 2015"}
-
-                // "region": "Africa",
-                // "country": "Angola",
-                // "year":2006,
-                // "type":"UNAAF",
-                // "title":"Diagnostic Trade Integration Study - Angola",
-                // "sectors":["Coffee", "Cashew","Farming" , "Lorem"],
-                // "description":"",
-
-            }];
-        r.showColumns= true;        console.log(1, r);
-    }else if(this.value=="2"){
-        r.showHeader=false;
-        r.showRefresh=true;
-        console.log(2, r);
-    }else{
-        alert( this.value );
-    }
-    console.log("r", r);
+    r.data=order_by(this.value, is_asc($('#sorter-how').val()));
     $('.results-table').find('table').bootstrapTable('destroy');
-    $('.results-table').find('table').bootstrapTable( r);
+    $('.results-table').find('table').bootstrapTable(r);
+    evaluate_show_less("short-text full-text");
+});
+
+$('#sorter-how').on('change', function() {
+    var r={};
+    $.extend(true, r , resultTableOptions(data));
+//        r.showHeader=true;
+ //       r.showRefresh=false;
+//        r.data=data;
+//        r.showColumns= true;
+    //        alert("value_selected:"+ this.value);
+
+    r.data=order_by($('#sorter').val(), is_asc(this.value));
+    $('.results-table').find('table').bootstrapTable('destroy');
+    $('.results-table').find('table').bootstrapTable(r);
+    evaluate_show_less("short-text full-text");
 });

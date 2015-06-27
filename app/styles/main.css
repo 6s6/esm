@@ -6712,4 +6712,39 @@ div.text-container {
   font-style: italic;
   color: gray;
 }
+@media (max-width: 760px) {
+  .label {
+    display: block;
+    margin-bottom: 4px;
+  }
+}
+@media (max-width: 480px) {
+  .label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .label-type {
+    font-size: 11px;
+    background-color: #3081c8;
+    font-weight: lighter;
+    line-height: 1;
+    padding: 7px;
+    border-radius: 0.45em;
+  }
+  .middle-column {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .middle-column-title {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #3081c8;
+    font-size: 16px;
+  }
+  .table-value {
+    font-size: 12px;
+  }
+  .left-table-row-title {
+    font-size: 14       px;
+  }
+}
 /*# sourceMappingURL=main.css.map */
