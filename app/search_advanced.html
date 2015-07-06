@@ -19,10 +19,12 @@
     <link rel="stylesheet" href="styles/bootstrap.css">
     <!--<link rel="stylesheet/less" type="text/css" href="styles/main.less" />-->
     <link rel="stylesheet" type="text/css" href="styles/main.css"/>
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script
+    <script src="js/jquery-2.1.4.js"></script>
 
-    <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css' rel='stylesheet'/>
+
+    <!--script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css' rel='stylesheet'/ -->
 
 </head>
 <body>
@@ -110,290 +112,326 @@
 
     </div>
 
+
     <!-- middle content section -->
     <section class="search-controls search-controls-full">
         <div class="container">
             <div class="card">
-                <div class="card-content">
-                    <div class="row">
-                        <fieldset class="col-xs-6">
-                            <!--<legend>Key variables</legend>-->
-
-                            <div class="row" style="display: block">
-                                <div class="form-group col-xs-6" data-toggle="tooltip" title="Official country name.">
-                                    <label for="country_name">Country</label>
-                                    <select id="country_name" placeholder="Country">
-                                        <option value="">Country</option>
-                                        <option value="12">Nairobi</option>
-                                        <option value="13">Pune</option>
-                                        <option value="14">Geneva</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group col-xs-6" data-toggle="tooltip" title="Geographic region where the country belongs.">
-                                    <label for="region">Region</label>
-                                    <input id="region" class="form-control"/>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group row" data-toggle="tooltip" title="Year of approval of the document.">
-                                <label for="year">Year</label>
-                                <input type="text" class="slider col-xs-6" id="year" value=""
-                                       data-range="true"
-                                       data-slider-min="2002"
-                                       data-slider-max="2015"
-                                       data-slider-step="1"
-                                       data-slider-value="[2006,2010]"
-                                       data-slider-orientation="horizontal"
-                                       data-slider-selection="after"
-                                       data-slider-tooltip="hide"
-                                        />
-                            </div>
-
-                            <div class="form-group" data-toggle="tooltip" title="Document type. " style="display: block">
-                                <label for="document_type" class="col-xs-6" >Type of Document</label>
-                                <select id="document_type"  multiple>
-                                    <option value=""></option>
-                                    <option value="22">type1</option>
-                                    <option value="23">type2</option>
-                                    <option value="24">type3</option>
-                                </select>
-                                <br/>
-                                <br/>
-                            </div>
-
-                            <div class="row" style="display: block;">
-                            <div class="form-group col-xs-6" data-toggle="tooltip" title="Year of implementation (start)">
-                                <label for="start">Start Year of Implementation</label>
-                                <input type="text" class="slider" id="start" value=""
-                                       data-range="true"
-                                       data-slider-min="2002"
-                                       data-slider-max="2015"
-                                       data-slider-step="1"
-                                       data-slider-value="2003"
-                                       data-slider-orientation="horizontal"
-                                       data-slider-selection="after"
-                                       data-slider-tooltip="hide"
-                                        />
-                            </div>
-                            <div class="form-group col-xs-6" data-toggle="tooltip" title="Year of implementation (end)">
-                                <label for="year-end">End Year of Implementation</label>
-                                <input type="text" class="slider" id="year-end" value=""
-                                       data-range="true"
-                                       data-slider-min="2002"
-                                       data-slider-max="2015"
-                                       data-slider-step="1"
-                                       data-slider-value="2006"
-                                       data-slider-orientation="horizontal"
-                                       data-slider-selection="after"
-                                       data-slider-tooltip="hide"
-                                        />
-                            </div>
-                            </div>
-
-
-                            <div class="form-group" data-toggle="tooltip" title="Priority sectors of the document (as written in the text)">
-                                <label for="priority_sector">Priority Sectors</label>
-                                <input id="priority_sector" class="form-control" type="text"/>
-                            </div>
-                            <div class="form-group" data-toggle="tooltip" title="SITC Rev. 4 2-digit priority sectors">
-                                <label for="sitc2">Priority Sectors - SITC Revision 4</label>
-                                <input id="sitc2" class="form-control" type="text"/>
-                            </div>
-                            <div class="form-group" data-toggle="tooltip" title="Sector categories to be displayed in the TSM">
-                                <label for="sector_category">Sector Name and Sector Type in ITC’s classification of sectors.</label>
-                                <input id="sector_category" class="form-control" type="text"/>
-                            </div>
-                                <div class="form-group row" data-toggle="tooltip" title="Date in which the record has been last updated." style="display: block !important;">
-                                    <label for="update" class="col-xs-6" style="width: 100px;display: inline">Last Update</label>
-                                    <input id="update" class="form-control col-xs-6" type="text" style="width: 100px;display: inline"/>
-                                </div>
+              <div class="card-content">
+                <div class="row">
 
 
 
 
-                            <!--end generated fields -->
 
-
-                            <div class="form-group row">
-                                <label class="col-xs-12">Year of implementation</label>
-
-                                <div class="col-xs-12">
-                                    <input type="text" class="slider col-xs-6" value=""
+                  <div class="well">
+    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseDocument" aria-expanded="false" aria-controls="collapseDocument">
+      <span class="btn btn-primary glyphicon glyphicon-plus collap" aria-hidden="true" ></span>
+    </a> <span class="collapse-title">Document Field</span>
+    <div class="collapse collapseDiv" id="collapseDocument">
+      <div class="col-xs-3"></div>
+      <div class="col-xs-3">
+            <div class="form-group" data-toggle="tooltip" title="">
+              <label for="DatePublished">Date Published</label>
+              <br>
+            <input id="DatePublished" type="text" class="slider " value=""
                                            data-range="true"
                                            data-slider-min="2002"
                                            data-slider-max="2015"
                                            data-slider-step="1"
-                                           data-slider-value="[2006,2010]"
                                            data-slider-orientation="horizontal"
                                            data-slider-selection="after"
                                            data-slider-tooltip="show"
                                             />
                                     <label>2009</label>
                                     <label>2015</label>
-                                </div>
-                            </div>
-                        </fieldset>
 
-                        <fieldset class="col-xs-3">
-                            <!--<legend>Thematic focus</legend>-->
+            </div>
 
-                            <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on poverty reduction">
-                                <label>
-                                    <input type="checkbox" id="poverty_reduction"/>
-                                    Poverty Reduction</label></div>
+            <div class="form-group" data-toggle="tooltip" title="">
+              <label for="DatePublished">Strategy Date</label>
+              <br>
+            <input id="DatePublished" type="text" class="slider " value=""
+                                           data-range="true"
+                                           data-slider-min="2002"
+                                           data-slider-max="2015"
+                   data-slider-step="1"
+                   data-slider-value="[2006,2010]"
+                                           data-slider-orientation="horizontal"
+                                           data-slider-selection="after"
+                                           data-slider-tooltip="show"
+                                            />
+                                    <label>2009</label>
+                                    <label>2015</label>
 
-                            <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on gender equality">
-                                <label>
-                                    <input type="checkbox" id="gender"/>
-                                    Gender</label></div>
+            </div>
 
-                            <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on youth integration">
-                                <label>
-                                    <input type="checkbox" id="youth"/>
-                                    Youth</label></div>
 
-                            <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on environmental sustainability">
-                                <label>
-                                    <input type="checkbox" id="environment"/>
-                                    Environment</label></div>
 
-                            <div class="checkbox" data-toggle="tooltip" title="The document focuses on regional integration.">
-                                <label>
-                                    <input type="checkbox" id="regional_integration"/>
-                                    Regional Integration</label></div>
 
-                            <div class="checkbox" data-toggle="tooltip" title="The document focuses on trade finance and/or access to credit.">
-                                <label>
-                                    <input type="checkbox" id="trade_finance"/>
-                                    Trade Finance</label></div>
 
-                            <div class="checkbox" data-toggle="tooltip" title="The document focuses on trade information and/or market intelligence.">
-                                <label>
-                                    <input type="checkbox" id="trade_information"/>
-                                    Trade Information</label></div>
-
-                            <div class="checkbox" data-toggle="tooltip" title="The document focuses on standards and/or quality management.">
-                                <label>
-                                    <input type="checkbox" id="quality"/>
-                                    Quality</label></div>
-
-                            <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on Technical and Vocational Education and Training (TVET).">
-                                <label>
-                                    <input type="checkbox" id="tvet"/>
-                                    TVET</label></div>
-
-                            <div class="checkbox" data-toggle="tooltip" title="The document focuses on trade facilitation.">
-                                <label>
-                                    <input type="checkbox" id="trade_facilitation"/>
-                                    Trade Facilitation</label></div>
-
-                            <div class="checkbox" data-toggle="tooltip" title="The document focuses on trade promotion.">
-                                <label>
-                                    <input type="checkbox" id="trade_promotion"/>
-                                    Trade Promotion</label></div>
-
-                            <div class="checkbox" data-toggle="tooltip" title="The document focuses primarily on trade.">
-                                <label>
-                                    <input type="checkbox" id="trade_focus"/>
-                                    Focus on Trade</label></div>
-
-                            <div class="checkbox" data-toggle="tooltip" title="Regional strategy.">
-                                <label>
-                                    <input type="checkbox" id="regional" class=""/>
-                                    Regional Document
-                                </label>
-                            </div>
-
-                            <div class="checkbox" data-toggle="tooltip" title="Title of the document">
-                                <label>
-                                    <input type="checkbox" id="regional" class=""/>
-                                    Title
-                                </label>
-                            </div>
-
-                            <div class="checkbox" data-toggle="tooltip" title="Brief description of the document">
-                                <label>
-                                    <input type="checkbox" id="regional" class=""/>
-                                    Description of the Document
-                                </label>
-                            </div>
-
+      </div>
+<div class="col-xs-2">
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+Last Update
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">24 hrs</a></li>
+    <li><a href="#">1 week</a></li>
+    <li><a href="#">1 month</a></li>
+    <li><a href="#">6 months</a></li>
+    <li><a href="#">1 year</a></li>
+    <li><a href="#">more than 1 year</a></li>
+  </ul>
+</div>
+</div>
+<div class="col-xs-2">
+  <div class="form-group">
+      <label for="CountryProfile">Country Profile</label>
                             <div class="checkbox" data-toggle="tooltip" title="The country is a Least Developed Country (LDC)">
                                 <label>
                                     <input type="checkbox" id="regional" class=""/>
-                                    Least Developed Country
+                                    LDC
                                 </label>
                             </div>
-
-
                             <div class="checkbox" data-toggle="tooltip" title="The country is a Land-Locked Least Developed Country (LLDC)">
                                 <label>
                                     <input type="checkbox" id="regional" class=""/>
-                                    Land-Locked Least Developed Country
+                                    LLDC
                                 </label>
                             </div>
 
+                            </div>
+</div>
+<div class="col-xs-2">
+<!--  <div class="collapse-subtitle">Counterpart</div> -->
+  <div class="form-group" data-toggle="tooltip" title="">
+    <label for="counterpart">Counterpart</label>
+    <input id="counterpart" class="form-control"/>
+  </div>
 
-                        </fieldset>
+</div>
+</div>
+ </div>
 
-                        <fieldset class="col-xs-3">
-                            <!--<legend>Process/institutional</legend>-->
+                  </div>
 
-                            <div class="checkbox" data-toggle="tooltip" title="Authority responsible for the elaboration and implementation of the document.">
+
+
+
+                <!-- end first -->
+
+                                <div class="row">
+
+
+
+
+
+                  <div class="well">
+    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseTheme" aria-expanded="false" aria-controls="collapseTheme">
+      <span class="btn btn-primary glyphicon glyphicon-plus collap" aria-hidden="true" ></span>
+    </a> <span class="collapse-title">Theme</span>
+    <div class="collapse collapseDiv" id="collapseTheme">
+      <div class="col-xs-3"></div>
+      <div class="col-xs-3">
+            <div class="form-group" data-toggle="tooltip" title="">
+              <label for="DatePublished">Date Published</label>
+              <br>
+            <input id="DatePublished" type="text" class="slider " value=""
+                                           data-range="true"
+                                           data-slider-min="2002"
+                                           data-slider-max="2015"
+                                           data-slider-step="1"
+                                           data-slider-orientation="horizontal"
+                                           data-slider-selection="after"
+                                           data-slider-tooltip="show"
+                                            />
+                                    <label>2009</label>
+                                    <label>2015</label>
+
+            </div>
+
+            <div class="form-group" data-toggle="tooltip" title="">
+              <label for="DatePublished">Strategy Date</label>
+              <br>
+            <input id="DatePublished" type="text" class="slider " value=""
+                                           data-range="true"
+                                           data-slider-min="2002"
+                                           data-slider-max="2015"
+                   data-slider-step="1"
+                   data-slider-value="[2006,2010]"
+                                           data-slider-orientation="horizontal"
+                                           data-slider-selection="after"
+                                           data-slider-tooltip="show"
+                                            />
+                                    <label>2009</label>
+                                    <label>2015</label>
+
+            </div>
+
+
+
+
+
+      </div>
+<div class="col-xs-2">
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+Last Update
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">24 hrs</a></li>
+    <li><a href="#">1 week</a></li>
+    <li><a href="#">1 month</a></li>
+    <li><a href="#">6 months</a></li>
+    <li><a href="#">1 year</a></li>
+    <li><a href="#">more than 1 year</a></li>
+  </ul>
+</div>
+</div>
+<div class="col-xs-2">
+  <div class="form-group">
+      <label for="CountryProfile">Country Profile</label>
+                            <div class="checkbox" data-toggle="tooltip" title="The country is a Least Developed Country (LDC)">
                                 <label>
-                                    <input type="checkbox" id="counterpart"/>
-                                    Authority
+                                    <input type="checkbox" id="regional" class=""/>
+                                    LDC
                                 </label>
                             </div>
-
-                            <div class="checkbox" data-toggle="tooltip" title="Strategy document facilitated by ITC.">
+                            <div class="checkbox" data-toggle="tooltip" title="The country is a Land-Locked Least Developed Country (LLDC)">
                                 <label>
-                                    <input type="checkbox" id="itc"/>
-                                    Document facilitated by the International Trade Centre (ITC)
+                                    <input type="checkbox" id="regional" class=""/>
+                                    LLDC
                                 </label>
                             </div>
 
-                            <div class="checkbox" data-toggle="tooltip" title="The document includes a detailed plan of action.">
+                            </div>
+</div>
+<div class="col-xs-2">
+<!--  <div class="collapse-subtitle">Counterpart</div> -->
+  <div class="form-group" data-toggle="tooltip" title="">
+    <label for="counterpart">Counterpart</label>
+    <input id="counterpart" class="form-control"/>
+  </div>
+
+</div>
+</div>
+ </div>
+
+                  </div>
+
+
+                                <!-- end second -->
+
+                                                <div class="row">
+
+
+
+
+
+                  <div class="well">
+    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseProcess" aria-expanded="false" aria-controls="collapseProcess">
+      <span class="btn btn-primary glyphicon glyphicon-plus collap" aria-hidden="true" ></span>
+    </a> <span class="collapse-title">Process</span>
+    <div class="collapse collapseDiv" id="collapseProcess">
+      <div class="col-xs-3"></div>
+      <div class="col-xs-3">
+            <div class="form-group" data-toggle="tooltip" title="">
+              <label for="DatePublished">Date Published</label>
+              <br>
+            <input id="DatePublished" type="text" class="slider " value=""
+                                           data-range="true"
+                                           data-slider-min="2002"
+                                           data-slider-max="2015"
+                                           data-slider-step="1"
+                                           data-slider-orientation="horizontal"
+                                           data-slider-selection="after"
+                                           data-slider-tooltip="show"
+                                            />
+                                    <label>2009</label>
+                                    <label>2015</label>
+
+            </div>
+
+            <div class="form-group" data-toggle="tooltip" title="">
+              <label for="DatePublished">Strategy Date</label>
+              <br>
+            <input id="DatePublished" type="text" class="slider " value=""
+                                           data-range="true"
+                                           data-slider-min="2002"
+                                           data-slider-max="2015"
+                   data-slider-step="1"
+                   data-slider-value="[2006,2010]"
+                                           data-slider-orientation="horizontal"
+                                           data-slider-selection="after"
+                                           data-slider-tooltip="show"
+                                            />
+                                    <label>2009</label>
+                                    <label>2015</label>
+
+            </div>
+
+
+
+
+
+      </div>
+<div class="col-xs-2">
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+Last Update
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">24 hrs</a></li>
+    <li><a href="#">1 week</a></li>
+    <li><a href="#">1 month</a></li>
+    <li><a href="#">6 months</a></li>
+    <li><a href="#">1 year</a></li>
+    <li><a href="#">more than 1 year</a></li>
+  </ul>
+</div>
+</div>
+<div class="col-xs-2">
+  <div class="form-group">
+      <label for="CountryProfile">Country Profile</label>
+                            <div class="checkbox" data-toggle="tooltip" title="The country is a Least Developed Country (LDC)">
                                 <label>
-                                    <input type="checkbox" id="action_plan"/>
-                                    Plan of Action
+                                    <input type="checkbox" id="regional" class=""/>
+                                    LDC
                                 </label>
                             </div>
-
-                            <div class="checkbox" data-toggle="tooltip" title="The document provides for a National Export Council (NEC) or a similar type of institution.">
+                            <div class="checkbox" data-toggle="tooltip" title="The country is a Land-Locked Least Developed Country (LLDC)">
                                 <label>
-                                    <input type="checkbox" id="nec"/>
-                                    National Export Council (NEC) or similar
+                                    <input type="checkbox" id="regional" class=""/>
+                                    LLDC
                                 </label>
                             </div>
 
-                            <div class="checkbox" data-toggle="tooltip" title="Resources have been allocated for the implementation of the document’s plan of action.">
-                                <label>
-                                    <input type="checkbox" id="allocated_resources"/>
-                                    Resources Allocated
-                                </label>
                             </div>
+</div>
+<div class="col-xs-2">
+<!--  <div class="collapse-subtitle">Counterpart</div> -->
+  <div class="form-group" data-toggle="tooltip" title="">
+    <label for="counterpart">Counterpart</label>
+    <input id="counterpart" class="form-control"/>
+  </div>
 
-                            <div class="checkbox" data-toggle="tooltip" title="The document has been elaborated through a participatory process.">
-                                <label>
-                                    <input type="checkbox" id="participatory"/>
-                                    Participatory
-                                </label>
-                            </div>
+</div>
+</div>
+ </div>
 
-                            <div class="checkbox" data-toggle="tooltip" title="The document is fully owned by the country.">
-                                <label>
-                                    <input type="checkbox" id="country_owned"/>
-                                    Country Ownership
-                                </label>
-                            </div>
+                  </div>
 
 
-                        </fieldset>
+                                                <!-- end third -->
 
-                    </div>
+
+
+
 
 
 
@@ -713,7 +751,8 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-        var map = L.map('map', {
+    /*
+    var map = L.map('map', {
             attributionControl: false,
             scrollWheelZoom: false,
             zoom: 3,
@@ -726,7 +765,7 @@
             maxZoom: 6
         }).addTo(map);
 
-
+*/
         $('select').selectize({
             openOnFocus: true
         });
@@ -749,6 +788,25 @@
     });
 
 
+    $('.collapseDiv').on('shown.bs.collapse', function (t) {
+    console.log("oh my good! document" , $(t.target));
+    var th =$(t.target);
+    $('.collap',th.parent()).toggleClass('glyphicon-plus ');;
+    $('.collap',th.parent()).toggleClass('glyphicon-minus ');;
+
+      })
+
+    $('.collapseDiv').on('hidden.bs.collapse', function (t) {
+    console.log("oh my good!", $(t.target));
+        var th =$(t.target);
+    $('.collap',th.parent()).toggleClass('glyphicon-plus ');;
+    $('.collap',th.parent()).toggleClass('glyphicon-minus ');;
+
+      })
+
+
 </script>
 </body>
+
+
 </html>
