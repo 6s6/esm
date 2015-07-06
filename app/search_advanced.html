@@ -435,6 +435,296 @@ Last Update
 
 
 
+
+
+
+
+
+
+
+
+                <div class="row">
+                        <fieldset class="col-xs-6">
+                            <!--<legend>Key variables</legend>-->
+
+                            <div class="row" style="display: block">
+                                <div class="form-group col-xs-6" data-toggle="tooltip" title="Official country name.">
+                                    <label for="country_name">Country</label>
+                                    <select id="country_name" placeholder="Country">
+                                        <option value="">Country</option>
+                                        <option value="12">Nairobi</option>
+                                        <option value="13">Pune</option>
+                                        <option value="14">Geneva</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-xs-6" data-toggle="tooltip" title="Geographic region where the country belongs.">
+                                    <label for="region">Region</label>
+                                    <input id="region" class="form-control"/>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row" data-toggle="tooltip" title="Year of approval of the document.">
+                                <label for="year">Year</label>
+                                <input type="text" class="slider col-xs-6" id="year" value=""
+                                       data-range="true"
+                                       data-slider-min="2002"
+                                       data-slider-max="2015"
+                                       data-slider-step="1"
+                                       data-slider-value="[2006,2010]"
+                                       data-slider-orientation="horizontal"
+                                       data-slider-selection="after"
+                                       data-slider-tooltip="hide"
+                                        />
+                            </div>
+
+                            <div class="form-group" data-toggle="tooltip" title="Document type. " style="display: block">
+                                <label for="document_type" class="col-xs-6" >Type of Document</label>
+                                <select id="document_type"  multiple>
+                                    <option value=""></option>
+                                    <option value="22">type1</option>
+                                    <option value="23">type2</option>
+                                    <option value="24">type3</option>
+                                </select>
+                                <br/>
+                                <br/>
+                            </div>
+
+                            <div class="row" style="display: block;">
+                            <div class="form-group col-xs-6" data-toggle="tooltip" title="Year of implementation (start)">
+                                <label for="start">Start Year of Implementation</label>
+                                <input type="text" class="slider" id="start" value=""
+                                       data-range="true"
+                                       data-slider-min="2002"
+                                       data-slider-max="2015"
+                                       data-slider-step="1"
+                                       data-slider-value="2003"
+                                       data-slider-orientation="horizontal"
+                                       data-slider-selection="after"
+                                       data-slider-tooltip="hide"
+                                        />
+                            </div>
+                            <div class="form-group col-xs-6" data-toggle="tooltip" title="Year of implementation (end)">
+                                <label for="year-end">End Year of Implementation</label>
+                                <input type="text" class="slider" id="year-end" value=""
+                                       data-range="true"
+                                       data-slider-min="2002"
+                                       data-slider-max="2015"
+                                       data-slider-step="1"
+                                       data-slider-value="2006"
+                                       data-slider-orientation="horizontal"
+                                       data-slider-selection="after"
+                                       data-slider-tooltip="hide"
+                                        />
+                            </div>
+                            </div>
+
+
+                            <div class="form-group" data-toggle="tooltip" title="Priority sectors of the document (as written in the text)">
+                                <label for="priority_sector">Priority Sectors</label>
+                                <input id="priority_sector" class="form-control" type="text"/>
+                            </div>
+                            <div class="form-group" data-toggle="tooltip" title="SITC Rev. 4 2-digit priority sectors">
+                                <label for="sitc2">Priority Sectors - SITC Revision 4</label>
+                                <input id="sitc2" class="form-control" type="text"/>
+                            </div>
+                            <div class="form-group" data-toggle="tooltip" title="Sector categories to be displayed in the TSM">
+                                <label for="sector_category">Sector Name and Sector Type in ITC’s classification of sectors.</label>
+                                <input id="sector_category" class="form-control" type="text"/>
+                            </div>
+                                <div class="form-group row" data-toggle="tooltip" title="Date in which the record has been last updated." style="display: block !important;">
+                                    <label for="update" class="col-xs-6" style="width: 100px;display: inline">Last Update</label>
+                                    <input id="update" class="form-control col-xs-6" type="text" style="width: 100px;display: inline"/>
+                                </div>
+
+
+
+
+                            <!--end generated fields -->
+
+
+                            <div class="form-group row">
+                                <label class="col-xs-12">Year of implementation</label>
+
+                                <div class="col-xs-12">
+                                    <input type="text" class="slider col-xs-6" value=""
+                                           data-range="true"
+                                           data-slider-min="2002"
+                                           data-slider-max="2015"
+                                           data-slider-step="1"
+                                           data-slider-value="[2006,2010]"
+                                           data-slider-orientation="horizontal"
+                                           data-slider-selection="after"
+                                           data-slider-tooltip="show"
+                                            />
+                                    <label>2009</label>
+                                    <label>2015</label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="col-xs-3">
+                            <!--<legend>Thematic focus</legend>-->
+
+                            <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on poverty reduction">
+                                <label>
+                                    <input type="checkbox" id="poverty_reduction"/>
+                                    Poverty Reduction</label></div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on gender equality">
+                                <label>
+                                    <input type="checkbox" id="gender"/>
+                                    Gender</label></div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on youth integration">
+                                <label>
+                                    <input type="checkbox" id="youth"/>
+                                    Youth</label></div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on environmental sustainability">
+                                <label>
+                                    <input type="checkbox" id="environment"/>
+                                    Environment</label></div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="The document focuses on regional integration.">
+                                <label>
+                                    <input type="checkbox" id="regional_integration"/>
+                                    Regional Integration</label></div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="The document focuses on trade finance and/or access to credit.">
+                                <label>
+                                    <input type="checkbox" id="trade_finance"/>
+                                    Trade Finance</label></div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="The document focuses on trade information and/or market intelligence.">
+                                <label>
+                                    <input type="checkbox" id="trade_information"/>
+                                    Trade Information</label></div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="The document focuses on standards and/or quality management.">
+                                <label>
+                                    <input type="checkbox" id="quality"/>
+                                    Quality</label></div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on Technical and Vocational Education and Training (TVET).">
+                                <label>
+                                    <input type="checkbox" id="tvet"/>
+                                    TVET</label></div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="The document focuses on trade facilitation.">
+                                <label>
+                                    <input type="checkbox" id="trade_facilitation"/>
+                                    Trade Facilitation</label></div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="The document focuses on trade promotion.">
+                                <label>
+                                    <input type="checkbox" id="trade_promotion"/>
+                                    Trade Promotion</label></div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="The document focuses primarily on trade.">
+                                <label>
+                                    <input type="checkbox" id="trade_focus"/>
+                                    Focus on Trade</label></div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="Regional strategy.">
+                                <label>
+                                    <input type="checkbox" id="regional" class=""/>
+                                    Regional Document
+                                </label>
+                            </div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="Title of the document">
+                                <label>
+                                    <input type="checkbox" id="regional" class=""/>
+                                    Title
+                                </label>
+                            </div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="Brief description of the document">
+                                <label>
+                                    <input type="checkbox" id="regional" class=""/>
+                                    Description of the Document
+                                </label>
+                            </div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="The country is a Least Developed Country (LDC)">
+                                <label>
+                                    <input type="checkbox" id="regional" class=""/>
+                                    Least Developed Country
+                                </label>
+                            </div>
+
+
+                            <div class="checkbox" data-toggle="tooltip" title="The country is a Land-Locked Least Developed Country (LLDC)">
+                                <label>
+                                    <input type="checkbox" id="regional" class=""/>
+                                    Land-Locked Least Developed Country
+                                </label>
+                            </div>
+
+
+                        </fieldset>
+
+                        <fieldset class="col-xs-3">
+                            <!--<legend>Process/institutional</legend>-->
+
+                            <div class="checkbox" data-toggle="tooltip" title="Authority responsible for the elaboration and implementation of the document.">
+                                <label>
+                                    <input type="checkbox" id="counterpart"/>
+                                    Authority
+                                </label>
+                            </div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="Strategy document facilitated by ITC.">
+                                <label>
+                                    <input type="checkbox" id="itc"/>
+                                    Document facilitated by the International Trade Centre (ITC)
+                                </label>
+                            </div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="The document includes a detailed plan of action.">
+                                <label>
+                                    <input type="checkbox" id="action_plan"/>
+                                    Plan of Action
+                                </label>
+                            </div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="The document provides for a National Export Council (NEC) or a similar type of institution.">
+                                <label>
+                                    <input type="checkbox" id="nec"/>
+                                    National Export Council (NEC) or similar
+                                </label>
+                            </div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="Resources have been allocated for the implementation of the document’s plan of action.">
+                                <label>
+                                    <input type="checkbox" id="allocated_resources"/>
+                                    Resources Allocated
+                                </label>
+                            </div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="The document has been elaborated through a participatory process.">
+                                <label>
+                                    <input type="checkbox" id="participatory"/>
+                                    Participatory
+                                </label>
+                            </div>
+
+                            <div class="checkbox" data-toggle="tooltip" title="The document is fully owned by the country.">
+                                <label>
+                                    <input type="checkbox" id="country_owned"/>
+                                    Country Ownership
+                                </label>
+                            </div>
+
+
+                        </fieldset>
+
+                    </div>
+
+
+
                     <div class="row">
                         <br/>
                         <div class="text-center">
