@@ -6572,9 +6572,6 @@ body {
   font-size: 16px;
   color: #3081c8;
 }
-.boldi {
-  font-weight: bold;
-}
 .table-title {
   font-size: 20px;
   color: #3081c8;
@@ -6683,10 +6680,10 @@ div.text-container {
   border-radius: .75em;
 }
 .label-type {
-  font-size: 21px;
+  font-size: 16px;
   background-color: #3081c8;
   font-weight: lighter;
-  line-height: 1;
+  line-height: 2;
   padding: 14px;
   padding-top: 7px;
   padding-bottom: 7px;

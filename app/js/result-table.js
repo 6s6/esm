@@ -113,12 +113,18 @@ The Programme of Cooperation is aligned with the Common Country Programme Docume
                 year:2005, implementationPeriod:"2008-2012",lastUpdate:"Fry Jul 13 2012"}
         }];
 
-function resultTableOptions(the_data){
+function queryParams() {
+    return {
+        per_page: 1,
+        page: 1
+    };
+}function resultTableOptions(the_data){
     return {
         method:'get',
     cache: false,
     striped: false,
-    pagination: true,
+        pagination: true,
+        "query-params":"queryParams",
     pageSize: 5,
     pageList: [10, 25, 50, 100, 200],
     search: false,

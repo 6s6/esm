@@ -21,8 +21,8 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css"/>
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 
-    <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css' rel='stylesheet'/>
+<!--    <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css' rel='stylesheet'/> -->
 </head>
 <body class="homepage-layout">
     <!-- brand header -->
@@ -108,7 +108,7 @@
     </div>
 
 
-    <section id="map" class="map-container map-container-home"></section>
+    <!--section id="map" class="map-container map-container-home"></section-->
 
     <main>
         <section class="filters">
@@ -326,7 +326,7 @@
 </div>
       </div>
                         <table class="table table-default table-sortable table-no-hover table-disable-hover" data-show-columns="true"
-                               data-sort-name="name" data-sort-order="desc">
+                               data-sort-name="name" data-sort-order="desc" data-pagination="true" data-query-params="queryParams">
                             <thead>
                             <tr>
                                 <th class="col-xs-4"  >
@@ -437,7 +437,7 @@
 
 
     $(window).load(function () {
-
+/*
         var map = L.map('map', {
             attributionControl: false,
             scrollWheelZoom: false,
@@ -450,7 +450,7 @@
         L.tileLayer('https://{s}.tiles.mapbox.com/v3/zimmerman2014.hmj09g6h/{z}/{x}/{y}.png', {
             maxZoom: 6
         }).addTo(map);
-
+*/
         $('select').selectize({
             openOnFocus: true,
         });
