@@ -37,6 +37,11 @@ app/bower_components/seiyria-bootstrap-slider/less/*
 app/bower_components/seiyria-bootstrap-slider/js/*
 !app/bower_components/seiyria-bootstrap-slider/js/bootstrap-slider.js
 
+!app/bower_components/bootstrap3-datepicker/js/
+app/bower_components/bootstrap-datepicker/js/*
+!app/bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js
+
+
 app/js/vendor/*
 !app/js/vendor/bootstrap-modalmanager.js
 !app/js/vendor/bootstrap.min.js
