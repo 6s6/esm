@@ -118,17 +118,22 @@
         <div class="container">
             <div class="card">
               <div class="card-content">
-                <div class="row">
+
+
+
+<!-- begin first -->
 
 
 
 
+<div class="row ">
 
-                  <div class="well">
+                  <div class="well search-tab">
+
     <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseDocument" aria-expanded="false" aria-controls="collapseDocument">
       <span class="btn btn-primary glyphicon glyphicon-plus collap" aria-hidden="true" ></span>
     </a> <span class="collapse-title">Document Field</span>
-    <div class="collapse collapseDiv" id="collapseDocument">
+    <div class="collapse collapseDiv row" id="collapseDocument">
       <div class="col-xs-3"></div>
       <div class="col-xs-3">
             <div class="form-group" data-toggle="tooltip" title="">
@@ -213,27 +218,23 @@ Last Update
   </div>
 
 </div>
-</div>
- </div>
 
-                  </div>
+</div></div>
+
+
+
 
 
 
 
                 <!-- end first -->
 
-                                <div class="row">
 
-
-
-
-
-                  <div class="well">
+                  <div class="well search-tab"  >
     <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseTheme" aria-expanded="false" aria-controls="collapseTheme">
       <span class="btn btn-primary glyphicon glyphicon-plus collap" aria-hidden="true" ></span>
     </a> <span class="collapse-title">Theme</span>
-    <div class="collapse collapseDiv" id="collapseTheme">
+    <div class="collapse collapseDiv row" id="collapseTheme">
       <div class="col-xs-3"></div>
       <div class="col-xs-3">
             <div class="form-group" data-toggle="tooltip" title="">
@@ -318,25 +319,27 @@ Last Update
   </div>
 
 </div>
-</div>
- </div>
 
-                  </div>
+
+
+</div></div>
+
+
 
 
                                 <!-- end second -->
 
-                                                <div class="row">
 
 
 
 
 
-                  <div class="well">
+
+                  <div class="well search-tab">
     <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseProcess" aria-expanded="false" aria-controls="collapseProcess">
       <span class="btn btn-primary glyphicon glyphicon-plus collap" aria-hidden="true" ></span>
     </a> <span class="collapse-title">Process</span>
-    <div class="collapse collapseDiv" id="collapseProcess">
+    <div class="collapse collapseDiv row" id="collapseProcess">
       <div class="col-xs-3"></div>
       <div class="col-xs-3">
             <div class="form-group" data-toggle="tooltip" title="">
@@ -424,7 +427,7 @@ Last Update
 </div>
  </div>
 
-                  </div>
+
 
 
                                                 <!-- end third -->
@@ -1041,7 +1044,7 @@ Last Update
 <script type="text/javascript">
     $(document).ready(function () {
 
-    /*
+
     var map = L.map('map', {
             attributionControl: false,
             scrollWheelZoom: false,
@@ -1055,7 +1058,7 @@ Last Update
             maxZoom: 6
         }).addTo(map);
 
-*/
+
         $('select').selectize({
             openOnFocus: true
         });
@@ -1079,7 +1082,7 @@ Last Update
 
 
     $('.collapseDiv').on('shown.bs.collapse', function (t) {
-    console.log("oh my good! document" , $(t.target));
+
     var th =$(t.target);
     $('.collap',th.parent()).toggleClass('glyphicon-plus ');;
     $('.collap',th.parent()).toggleClass('glyphicon-minus ');;
@@ -1087,7 +1090,7 @@ Last Update
       })
 
     $('.collapseDiv').on('hidden.bs.collapse', function (t) {
-    console.log("oh my good!", $(t.target));
+
         var th =$(t.target);
     $('.collap',th.parent()).toggleClass('glyphicon-plus ');;
     $('.collap',th.parent()).toggleClass('glyphicon-minus ');;
