@@ -125,7 +125,7 @@
                         <div class="row" role="form">
                           <div class="col-xs-12 col-md-12">
                             <div class="row">
-                              <div class="col-xs-12 col-sm-3">
+                              <div class="col-xs-12 col-sm-3" data-toggle="tooltip" title="Geographic region where the country belongs.">
                                 <select class="input-sm">
                                   <option value="">Region</option>
                                   <option value="region2">Region1</option>
@@ -134,7 +134,7 @@
                                   <option>Region4</option>
                                 </select>
                               </div>
-                              <div class="col-xs-12 col-sm-3">
+                              <div class="col-xs-12 col-sm-3" data-toggle="tooltip" title="Official country name.">
 
                                 <select id="country-001" placeholder="Country" class=" input-sm">
                                   <option value="">Country</option>
@@ -156,7 +156,7 @@
     <option>Essential Oils</option>
   </select>
 </div>
-<div class="col-xs-12 col-sm-3">
+<div class="col-xs-12 col-sm-3" data-toggle="tooltip" title="Document type. " >
   <select id="country-001" placeholder="Document type" class="input-sm">
     <option value="">Document type</option>
     <option value="12">Type2</option>
@@ -215,9 +215,9 @@
                 </div>
 
                 <div class="form-group" data-toggle="tooltip" title="">
-                  <label for="DatePublished">Strategy Date</label>
+                  <label for="StrategyDate">Strategy Date</label>
                   <br>
-                  <input id="DatePublished" type="text" class="slider " value=""
+                  <input id="StrategyDate" type="text" class="slider " value=""
                          data-range="true"
                          data-slider-min="2002"
                          data-slider-max="2015"
@@ -239,11 +239,11 @@
               </div>
               <div class="col-xs-2">
                 <div class="dropdown">
-                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="last_update" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     Last Update
                     <span class="caret"></span>
                   </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <ul class="dropdown-menu" aria-labelledby="last_update">
                     <li><a href="#">24 hrs</a></li>
                     <li><a href="#">1 week</a></li>
                     <li><a href="#">1 month</a></li>
@@ -258,13 +258,13 @@
                   <label for="CountryProfile">Country Profile</label>
                   <div class="checkbox" data-toggle="tooltip" title="The country is a Least Developed Country (LDC)">
                     <label>
-                      <input type="checkbox" id="regional" class=""/>
+                      <input type="checkbox" id="ldc" class=""/>
                       LDC
                     </label>
                   </div>
                   <div class="checkbox" data-toggle="tooltip" title="The country is a Land-Locked Least Developed Country (LLDC)">
                     <label>
-                      <input type="checkbox" id="regional" class=""/>
+                      <input type="checkbox" id="lldc" class=""/>
                       LLDC
                     </label>
                   </div>
@@ -273,7 +273,7 @@
               </div>
               <div class="col-xs-2">
                 <!--  <div class="collapse-subtitle">Counterpart</div> -->
-                <div class="form-group" data-toggle="tooltip" title="">
+                <div class="form-group" data-toggle="tooltip" title="Authority responsible for the elaboration and implementation of the document.">
                   <label for="counterpart">Counterpart</label>
                   <input id="counterpart" class="form-control"/>
                 </div>
@@ -319,76 +319,69 @@
                       Youth</label></div>
 
                 </div>
-
-
-
-
-
-
-
               </div>
+
+
               <div class="col-xs-2">
                 <div class="form-group" data-toggle="tooltip" title="">
                   <label for="DatePublished">Trade</label>
                   <br>
-                  <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on environmental sustainability">
+                  <div class="checkbox" data-toggle="tooltip" title="The trade export strategy ">
                     <label>
-                      <input type="checkbox" id="environment"/>
+                      <input type="checkbox" id="export_strategy"/>
                       Export Strategy</label></div>
-                  <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on gender equality">
+                  <div class="checkbox" data-toggle="tooltip" title="Trade focus">
                     <label>
-                      <input type="checkbox" id="gender"/>
+                      <input type="checkbox" id="trade_focus"/>
                       Trade focus</label></div>
-
-
                 </div>
-
               </div>
+
               <div class="col-xs-5">
                 <div class="form-group" data-toggle="tooltip" title="">
                   <label for="DatePublished">Functional Strategy</label>
                   <div class="row">
                     <div class="col-xs-4">
-                      <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on environmental sustainability">
+                      <div class="checkbox" data-toggle="tooltip" title="The document focuses on trade facilitation.">
                         <label>
-                          <input type="checkbox" id="facilitation" title="The document focuses on trade facilitation." />
+                          <input type="checkbox" id="facilitation"  />
                           Facilitation</label></div>
-                      <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on gender equality">
+                      <div class="checkbox" data-toggle="tooltip" title="The document focuses on trade finance and/or access to credit.">
                         <label>
                           <input type="checkbox" id="finance"/>
                           Finance</label></div>
-                      <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on gender equality">
+                      <div class="checkbox" data-toggle="tooltip" title="The document focuses on trade information and/or market intelligence.">
                         <label>
                           <input type="checkbox" id="information"/>
                           Information</label></div>
                     </div>
                     <div class="col-xs-4">
-                      <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on gender equality">
+                      <div class="checkbox" data-toggle="tooltip" title="The document focuses on trade promotion.">
                         <label>
                           <input type="checkbox" id="promotion"/>
                           Promotion</label></div>
-                      <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on gender equality">
+                      <div class="checkbox" data-toggle="tooltip" title="The document focuses on standards and/or quality management.">
                         <label>
                           <input type="checkbox" id="quality"/>
                           Quality</label></div>
-                      <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on gender equality">
+                      <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on Technical and Vocational Education and Training (TVET).">
                         <label>
                           <input type="checkbox" id="tvet"/>
                           TVET</label></div>
                     </div>
                     <div class="col-xs-4">
-                      <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on gender equality">
+                      <div class="checkbox" data-toggle="tooltip" title="">
                         <label>
-                          <input type="checkbox" id="promotion"/>
+                          <input type="checkbox" id="regional_scope"/>
                           Regional Scope</label></div>
-                      <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on gender equality">
+                      <div class="checkbox" data-toggle="tooltip" title="">
                         <label>
-                          <input type="checkbox" id="quality"/>
+                          <input type="checkbox" id="regional_integration"/>
                           Regional Integration </label></div>
-                      <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on gender equality">
+                      <div class="checkbox" data-toggle="tooltip" title="select all theme options">
                         <label>
-                          <input type="checkbox" id="tvet"/>
-                          All?</label></div>
+                          <input type="checkbox" id="all_theme"/>
+                          All ?</label></div>
                     </div>
 
                   </div>
@@ -421,17 +414,17 @@
                   <div class="form-group" data-toggle="tooltip" title="">
                     <label for="DatePublished">Implementation</label>
                     <br>
-                    <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on environmental sustainability">
+                    <div class="checkbox" data-toggle="tooltip" title="The document includes a detailed plan of action.">
                       <label>
-                        <input type="checkbox" id="environment"/>
+                        <input type="checkbox" id="action_plan" />
                         Action Plan</label></div>
-                    <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on gender equality">
+                    <div class="checkbox" data-toggle="tooltip" title="The document provides for a National Export Council (NEC) or a similar type of institution.">
                       <label>
-                        <input type="checkbox" id="gender"/>
+                        <input type="checkbox" id="nec"/>
                         NEC</label></div>
-                    <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on poverty reduction">
+                    <div class="checkbox" data-toggle="tooltip" title="Resources have been allocated for the implementation of the document’s plan of action.">
                       <label>
-                        <input type="checkbox" id="poverty_reduction"/>
+                        <input type="checkbox" id="resources_allocated"/>
                         Resources</label></div>
                   </div>
 
@@ -447,11 +440,11 @@
                       </label>
                     </div>
 
-                    <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on environmental sustainability">
+                    <div class="checkbox" data-toggle="tooltip" title="Strategy document facilitated by ITC.">
                       <label>
                         <input type="checkbox" id="itc"/>
                         ITC</label></div>
-                    <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on gender equality">
+                    <div class="checkbox" data-toggle="tooltip" title="The document has been elaborated through a participatory process.">
                       <label>
                         <input type="checkbox" id="participatory"/>
                         Participatory</label></div>
@@ -460,9 +453,9 @@
               </div>
               <div class="col-xs-3">
                 <br>
-                 <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on gender equality">
+                 <div class="checkbox" data-toggle="tooltip" title="select all process options">
                       <label>
-                        <input type="checkbox" id="participatory"/>
+                        <input type="checkbox" id="all_process"/>
                         All ? </label></div>
                   </div>
 
@@ -481,7 +474,7 @@
             <br/>
             <div class="text-center">
               <button class="btn btn-primary">Apply filters</button>
-              <a href="javascript:;" class="btn-clear-filters" title="Clear filters"><i class="fa fa-times-circle"></i></a>
+              <a href="javascript:;" id="clear_filters" class="btn-clear-filters" title="Clear filters"><i class="fa fa-times-circle"></i></a>
             </div>
           </div>
 
@@ -786,7 +779,7 @@
 <script src="bower_components/bootstrap3-datepicker/js/bootstrap-datepicker.js"></script>
 
 <script src="js/result-table.js"></script>
-
+<script src="js/search-advanced.js"></script>
 <script type="text/javascript">
   $(document).ready(function () {
 

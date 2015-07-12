@@ -6235,7 +6235,7 @@ section.indicators #map {
   border-right: 1px solid #eee;
 }
 .search-controls .slider {
-  width: 50%;
+  width: 70%;
   margin: 0 10px;
 }
 .search-controls .slider ~ label {
