@@ -90,8 +90,7 @@ function yearFormatter(value){
     return value;
 }
 
-var data=[
-    {
+var row1={
             left: {region: "Europe", country:"Spain", countryCode:"ESP"},
             middle: {title: "ESP-Diagnostic Trade Integration Study - Espain",
                 description:"The document analyzes the current economic situation and the determinants of poverty in Angola, and it outlines policy actions in ten main areas of intervention: 1) probation; 2) demining; 3) food security and rural development; 4) HIV/AIDS; 5) Education; 6) Health; 7) Basic infrastructures; 8) professional training and employment; 9) governance; 10) macroeconomic governance. \
@@ -102,88 +101,112 @@ The Programme of Cooperation is aligned with the Common Country Programme Docume
             right: {type: "UNAAF",
                 year:2003, implementationPeriod:"2007-2010",lastUpdate:"Thu May 28 2015"}
 
-    },
-    {
+};
+
+var row2={
             left: {region: "Africa", country:"Benin", countryCode:"BEN"},
             middle: {title: "Diagnostic Trade Integration Study - Benin",
                 description:"Agro-Processing Industry, Cashew, Cotton, Fisheries, Pineapple, Shea, Shrimp Farming,Tourism,Agro-Processing Industry, Cashew, Cotton, Fisheries, Pineapple, Shea, Shrimp Farming,Tourism", sectors:["Coffee", "Cashew","Farming" , "Lorem"]
             },
-
             right: {type: "UNAAF",
                 year:2005, implementationPeriod:"2008-2012",lastUpdate:"Fry Jul 13 2012"}
-        }];
+        };
+
+var data=[row1, row2];
 
 function queryParams() {
     return {
         per_page: 1,
         page: 1
     };
-}function resultTableOptions(the_data){
+}
+
+function resultTableOptions(the_data, the_columns){
     return {
         method:'get',
-    cache: false,
-    striped: false,
+        cache: false,
+        striped: false,
         pagination: true,
         "query-params":"queryParams",
-    pageSize: 5,
-    pageList: [10, 25, 50, 100, 200],
-    search: false,
-    showRefresh: false,
-    showColumns: false,
-    minimumCountColumns: 2,
-    showHeader:false,
-    clickToSelect: false,
-    iconsPrefix: 'fa',
-    toolbar: '#custom-toolbar',
-    toolbarAlign: "right",
-    icons: {
-	paginationSwitchDown: 'fa-collapse-down icon-chevron-down',
-	paginationSwitchUp: 'fa-collapse-up icon-chevron-up',
-	refresh: 'fa-refresh icon-refresh',
-	toggle: 'fa-list-alt icon-list-alt',
-	columns: 'fa-th icon-th'
-    },
-    data:the_data ,
-    columns: [
-        {
-	    field: "left",
-	    title: "left",
-	    sortable: true,
-            sorter:"leftSorter",
-	    valign: "top",
-	    align: "left",
-	    description: "left header description",
-            formatter:"leftFormatter",
-            class:"col-md-2"
+        pageSize: 5,
+        pageList: [10, 25, 50, 100, 200],
+        search: false,
+        showRefresh: false,
+        showColumns: false,
+        minimumCountColumns: 2,
+        showHeader:false,
+        clickToSelect: false,
+        iconsPrefix: 'fa',
+        toolbar: '#custom-toolbar',
+        toolbarAlign: "right",
+        icons: {
+	    paginationSwitchDown: 'fa-collapse-down icon-chevron-down',
+	    paginationSwitchUp: 'fa-collapse-up icon-chevron-up',
+	    refresh: 'fa-refresh icon-refresh',
+	    toggle: 'fa-list-alt icon-list-alt',
+	    columns: 'fa-th icon-th'
+        },
+        data:the_data ,
+        columns: the_columns
+    };}
 
-	},
-        {
-	    field: "middle",
-	    title: "middle",
-	    sortable: true,
-            sorter:"middleSorter",
-	    valign: "top",
-	    align: "left",
-	    description: "middle header description",
-            formatter:"middleFormatter",
-            class:"col-md-7"
-	},
-        {
-	    field: "right",
-	    title: "right",
-	    sortable: true,
-            sorter:"rightSorter",
-	    valign: "top",
-	    align: "left",
-	    description: "right header description",
-            formatter:"rightFormatter",
-            class:"col-md-3"
-	},
-    ]
-};}
+
+var column1={
+	        field: "left",
+	        title: "left",
+	        sortable: true,
+                sorter:"leftSorter",
+	        valign: "top",
+	        align: "left",
+	        description: "left header description",
+                formatter:"leftFormatter",
+                class:"col-md-2"
+
+};
+
+var column2={
+	        field: "middle",
+	        title: "middle",
+	        sortable: true,
+                sorter:"middleSorter",
+	        valign: "top",
+	        align: "left",
+	        description: "middle header description",
+                formatter:"middleFormatter",
+                class:"col-md-7"
+};
+
+var column3={
+	        field: "right",
+	        title: "right",
+	        sortable: true,
+                sorter:"rightSorter",
+	        valign: "top",
+	        align: "left",
+	        description: "right header description",
+                formatter:"rightFormatter",
+                class:"col-md-3"
+	    };
+
+var column_new={
+	        field: "new",
+	        title: "right",
+	        sortable: true,
+//                sorter:"rightSorter",
+	        valign: "top",
+	        align: "left",
+	        description: "right header description",
+//                formatter:"rightFormatter",
+                class:"col-md-3"
+	    };
+
+var the_columns=[column1, column2, column3];
+
 var $resultTableContainer = $('.results-table');
+
 var $resultTable = $resultTableContainer.find('table');
-$resultTable.bootstrapTable(resultTableOptions(data));
+
+$resultTable.bootstrapTable(resultTableOptions(data, the_columns));
 
 var $tableHeadings = $resultTable.find('thead tr th');
 
@@ -196,6 +219,7 @@ $.each(resultTableOptions.columns, function(columnIdx, columnData){
     });
 });
 */
+
 $('.fixed-table-toolbar').prepend($('.pagination-detail').html()).addClass('text-muted');
 
 function is_asc(order_id){
@@ -206,6 +230,7 @@ function is_asc(order_id){
     }
 
 }
+
 function compare_strings(place, data_id, asc){
     return function (a, b) {
         if(asc){
@@ -242,8 +267,6 @@ function order_by(id, asc){
     }else if(id==="year"){
         data.sort(compare_numbers("right", id, asc));
         return data;
-
-
     }else if(id==="implementationPeriod"){
         data.sort(compare_strings("right", id, asc));
         return data;
@@ -254,9 +277,10 @@ function order_by(id, asc){
         console.error("error: this id is not allowed: "+id);
     }
 }
+
 $('#sorter').on('change', function() {
     var r={};
-    $.extend(true, r , resultTableOptions(data));
+    $.extend(true, r , resultTableOptions(data, the_columns));
 //        r.showHeader=true;
  //       r.showRefresh=false;
 //        r.data=data;
@@ -271,7 +295,8 @@ $('#sorter').on('change', function() {
 
 $('#sorter-how').on('change', function() {
     var r={};
-    $.extend(true, r , resultTableOptions(data));
+
+    $.extend(true, r , resultTableOptions(data, the_columns));
 //        r.showHeader=true;
  //       r.showRefresh=false;
 //        r.data=data;

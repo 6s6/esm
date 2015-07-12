@@ -1,0 +1,4 @@
+* UI side
+** DONE Include js-table in Advanced-search
+* Server side
+** TODO create clojure liberator service
