@@ -1,8 +1,9 @@
+var select_filters=["select_country","select_region", "select_sector", "select_document_type"];
 var document_tab={
     checks:["ldc", "lldc"],
     one_option_time:[{id:"DatePublished", val:"2002"}],
     two_option_time:[{id:"StrategyDate", vals:"[2006, 2010]"}],
-    selects:[{id:"last_update", v:""}],
+    selects:["last_update"],
     inputs:["counterpart"]
 
 };
@@ -40,6 +41,13 @@ var all_checks=[].concat(document_tab.checks).concat(theme_tab.checks).concat(pr
 
 $('#clear_filters').on("click", function(){
     all_checks.map(function(d){uncheck(d);});
+    select_filters.concat(document_tab.selects).map(function(s){
+         $('#'+s).selectize()[0].selectize.clear();
+    });
+    document_tab.inputs.map(function(s){
+        $("#"+s).val("");
+    });
+
 });
 
 $('#all_theme').on("click", function(){

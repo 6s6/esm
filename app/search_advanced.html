@@ -126,7 +126,7 @@
                           <div class="col-xs-12 col-md-12">
                             <div class="row">
                               <div class="col-xs-12 col-sm-3" data-toggle="tooltip" title="Geographic region where the country belongs.">
-                                <select class="input-sm">
+                                <select class="input-sm" id="select_region">
                                   <option value="">Region</option>
                                   <option value="region2">Region1</option>
                                   <option>Region2</option>
@@ -136,7 +136,7 @@
                               </div>
                               <div class="col-xs-12 col-sm-3" data-toggle="tooltip" title="Official country name.">
 
-                                <select id="country-001" placeholder="Country" class=" input-sm">
+                                <select id="select_country" placeholder="Country" class=" input-sm" >
                                   <option value="">Country</option>
                                   <option value="12">Nairobi</option>
                                   <option value="13">Pune</option>
@@ -146,7 +146,7 @@
 </div>
 <div class="col-xs-12 col-sm-3">
 
-  <select class="input-sm" id="sector-002">
+  <select class="input-sm" id="select_sector">
     <option value="">Sector</option>
     <option value="2">Business Process Outsourcing</option>
     <option>Cocoa</option>
@@ -157,7 +157,7 @@
   </select>
 </div>
 <div class="col-xs-12 col-sm-3" data-toggle="tooltip" title="Document type. " >
-  <select id="country-001" placeholder="Document type" class="input-sm">
+  <select id="select_document_type" placeholder="Document type" class="input-sm">
     <option value="">Document type</option>
     <option value="12">Type2</option>
     <option value="13">Type3</option>
@@ -238,20 +238,17 @@
 
               </div>
               <div class="col-xs-2">
-                <div class="dropdown">
-                  <button class="btn btn-default dropdown-toggle" type="button" id="last_update" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Last Update
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="last_update">
-                    <li><a href="#">24 hrs</a></li>
-                    <li><a href="#">1 week</a></li>
-                    <li><a href="#">1 month</a></li>
-                    <li><a href="#">6 months</a></li>
-                    <li><a href="#">1 year</a></li>
-                    <li><a href="#">more than 1 year</a></li>
-                  </ul>
-                </div>
+
+                <select class="input-sm" id="last_update">
+                  <option value="">Last Update</option>
+                  <option value="24H">24 Hrs</option>
+                  <option value="1W">1 week</option>
+                  <option value="1M">1 month</option>
+                  <option value="6M">6 month</option>
+                  <option value="1Y">1 year</option>
+                  <option value="+1Y">more than 1 year</option>
+                </select>
+
               </div>
               <div class="col-xs-2">
                 <div class="form-group">
