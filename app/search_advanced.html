@@ -22,10 +22,10 @@
         <script src="js/vendor/modernizr-2.6.2.min.js"></script
                                                           <script src="js/jquery-2.1.4.js"></script>
 
-
+<!--
                                                           <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
                                                           <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css' rel='stylesheet'/>
-
+-->
       </head>
       <body>
         <form role="form">
@@ -192,8 +192,10 @@
           <div class="well search-tab">
 
             <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseDocument" aria-expanded="false" aria-controls="collapseDocument">
-              <span class="btn btn-primary glyphicon glyphicon-plus collap" aria-hidden="true" ></span>
-            </a> <span class="collapse-title">Document Field</span>
+              <span class="glyphicon glyphicon-plus collap plus-minus" aria-hidden="true" ></span>
+            </a>
+            <a class="" role="button" data-toggle="collapse" href="#collapseDocument" aria-expanded="false" aria-controls="collapseDocument">
+              <span class="collapse-title">Document Field</span></a>
             <div class="collapse collapseDiv row" id="collapseDocument">
               <div class="col-xs-3"></div>
               <div class="col-xs-3">
@@ -202,7 +204,7 @@
                   <br>
                   <input id="DatePublished" type="text" class="slider " value=""
                          data-range="true"
-                         data-slider-min="2002"
+                         data-slider-min="2009"
                          data-slider-max="2015"
                          data-slider-step="1"
                          data-slider-orientation="horizontal"
@@ -290,8 +292,11 @@
 
           <div class="well search-tab"  >
             <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseTheme" aria-expanded="false" aria-controls="collapseTheme">
-              <span class="btn btn-primary glyphicon glyphicon-plus collap" aria-hidden="true" ></span>
-            </a> <span class="collapse-title">Theme</span>
+              <span class="glyphicon glyphicon-plus collap plus-minus" aria-hidden="true" ></span>
+            </a>
+                        <a class="" role="button" data-toggle="collapse" href="#collapseTheme" aria-expanded="false" aria-controls="collapseTheme">
+
+            <span class="collapse-title">Theme</span></a>
             <div class="collapse collapseDiv row" id="collapseTheme">
               <div class="col-xs-2"></div>
               <div class="col-xs-3">
@@ -402,14 +407,17 @@
 
           <div class="well search-tab">
             <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseProcess" aria-expanded="false" aria-controls="collapseProcess">
-              <span class="btn btn-primary glyphicon glyphicon-plus collap" aria-hidden="true" ></span>
-            </a> <span class="collapse-title">Process</span>
+              <span class=" glyphicon glyphicon-plus collap plus-minus" aria-hidden="true" ></span>
+            </a>
+            <a class="" role="button" data-toggle="collapse" href="#collapseProcess" aria-expanded="false" aria-controls="collapseProcess">
+              <span class="collapse-title">Process</span>
+              </a>
             <div class="collapse collapseDiv row" id="collapseProcess">
               <div class="col-xs-3"></div>
               <div class="col-xs-3">
 
                   <div class="form-group" data-toggle="tooltip" title="">
-                    <label for="DatePublished">Implementation</label>
+                    <label for="implementation">Implementation</label>
                     <br>
                     <div class="checkbox" data-toggle="tooltip" title="The document includes a detailed plan of action.">
                       <label>
@@ -428,7 +436,7 @@
               </div>
               <div class="col-xs-3">
                                   <div class="form-group" data-toggle="tooltip" title="">
-                    <label for="DatePublished">Skate holders</label>
+                    <label for="s">Skate holders</label>
                     <br>
                     <div class="checkbox" data-toggle="tooltip" title="The document is fully owned by the country.">
                       <label>
@@ -470,7 +478,7 @@
           <div class="row">
             <br/>
             <div class="text-center">
-              <button class="btn btn-primary">Apply filters</button>
+              <button class="btn btn-primary" id="apply_filters">Apply filters</button>
               <a href="javascript:;" id="clear_filters" class="btn-clear-filters" title="Clear filters"><i class="fa fa-times-circle"></i></a>
             </div>
           </div>
@@ -780,7 +788,7 @@
 <script type="text/javascript">
   $(document).ready(function () {
 
-
+/*
   var map = L.map('map', {
   attributionControl: false,
   scrollWheelZoom: false,
@@ -795,7 +803,7 @@
   }).addTo(map);
 
 
-
+*/
   $('select').selectize({
   openOnFocus: true
   });
