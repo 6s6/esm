@@ -598,10 +598,11 @@
                         <!-- this utilizes bootstrap-table with lots of filtering/sorting options and ability to load remote JSON -->
                         <!-- http://wenzhixin.net.cn/p/bootstrap-table/ -->
 
-<div class="row">
-        <div class="col-md-10"></div>
+<div class="row sorters" >
+        <div class="col-md-8"></div>
 
         <div class="col-md-2">
+
 <select id="sorter">
 
     <option value="region">Order by: Region</option>
@@ -612,6 +613,8 @@
     <option value="implementationPeriod">Order by: Implementation Period</option>
     <option value="lastUpdate">Order by: Last Update</option>
 </select>
+        </div>
+        <div class="col-md-2">
 <select id="sorter-how">
     <option value="asc" selected>Ascendent</option>
     <option value="desc">Descendent</option>
