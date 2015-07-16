@@ -8,9 +8,9 @@ var document_tab={
 
 };
 var theme_tab={checks:["environment", "gender", "poverty_reduction", "youth", "export_strategy", "trade_focus",
-    "facilitation", "finance", "information", "promotion", "quality", "tvet", "regional_scope", "regional_integration", "all_theme"
+    "trade_facilitation", "trade_finance", "trade_information", "trade_promotion", "quality", "tvet", "regional", "regional_integration", "all_theme"
 ]};
-var process_tab={checks:["action_plan", "nec", "resources_allocated", "country_owned", "itc", "participatory", "all_process"]};
+var process_tab={checks:["action_plan", "nec", "allocated_resources", "country_owned", "itc", "participatory", "all_process"]};
 
 function uncheck(id){
     $('#'+id).prop('checked', false);

@@ -144,7 +144,7 @@
                                 </select>
 </select>
 </div>
-<div class="col-xs-12 col-sm-3">
+<div class="col-xs-12 col-sm-3"  data-toggle="tooltip" title="Sector " >
 
   <select class="input-sm" id="select_sector">
     <option value="">Sector</option>
@@ -156,7 +156,7 @@
     <option>Essential Oils</option>
   </select>
 </div>
-<div class="col-xs-12 col-sm-3" data-toggle="tooltip" title="Document type. " >
+<div class="col-xs-12 col-sm-3" data-toggle="tooltip" title="Type of Document" >
   <select id="select_document_type" placeholder="Document type" class="input-sm">
     <option value="">Document type</option>
     <option value="12">Type2</option>
@@ -239,7 +239,7 @@
 
 
               </div>
-              <div class="col-xs-2">
+              <div class="col-xs-2" data-toggle="tooltip" title="Date in which the record has been last updated.">
 
                 <select class="input-sm" id="last_update">
                   <option value="">Last Update</option>
@@ -273,7 +273,7 @@
               <div class="col-xs-2">
                 <!--  <div class="collapse-subtitle">Counterpart</div> -->
                 <div class="form-group" data-toggle="tooltip" title="Authority responsible for the elaboration and implementation of the document.">
-                  <label for="counterpart">Counterpart</label>
+                  <label for="counterpart">Authority</label>
                   <input id="counterpart" class="form-control"/>
                 </div>
 
@@ -299,10 +299,8 @@
             <span class="collapse-title">Theme</span></a>
             <div class="collapse collapseDiv row" id="collapseTheme">
               <div class="col-xs-2"></div>
-              <div class="col-xs-3">
+              <div class="col-xs-2">
                 <div class="form-group" data-toggle="tooltip" title="">
-                  <label for="DatePublished">Cross cutting issues</label>
-                  <br>
                   <div class="checkbox" data-toggle="tooltip" title="The strategy focuses on environmental sustainability">
                     <label>
                       <input type="checkbox" id="environment"/>
@@ -326,8 +324,6 @@
 
               <div class="col-xs-2">
                 <div class="form-group" data-toggle="tooltip" title="">
-                  <label for="DatePublished">Trade</label>
-                  <br>
                   <div class="checkbox" data-toggle="tooltip" title="The trade export strategy ">
                     <label>
                       <input type="checkbox" id="export_strategy"/>
@@ -335,33 +331,32 @@
                   <div class="checkbox" data-toggle="tooltip" title="Trade focus">
                     <label>
                       <input type="checkbox" id="trade_focus"/>
-                      Trade focus</label></div>
+                      Focus on trade</label></div>
                 </div>
               </div>
 
-              <div class="col-xs-5">
+              <div class="col-xs-6">
                 <div class="form-group" data-toggle="tooltip" title="">
-                  <label for="DatePublished">Functional Strategy</label>
                   <div class="row">
                     <div class="col-xs-4">
                       <div class="checkbox" data-toggle="tooltip" title="The document focuses on trade facilitation.">
                         <label>
-                          <input type="checkbox" id="facilitation"  />
-                          Facilitation</label></div>
+                          <input type="checkbox" id="trade_facilitation"  />
+                          Trade Facilitation</label></div>
                       <div class="checkbox" data-toggle="tooltip" title="The document focuses on trade finance and/or access to credit.">
                         <label>
-                          <input type="checkbox" id="finance"/>
-                          Finance</label></div>
+                          <input type="checkbox" id="trade_finance"/>
+                          Trade Finance</label></div>
                       <div class="checkbox" data-toggle="tooltip" title="The document focuses on trade information and/or market intelligence.">
                         <label>
-                          <input type="checkbox" id="information"/>
-                          Information</label></div>
+                          <input type="checkbox" id="trade_information"/>
+                          Trade Information</label></div>
                     </div>
                     <div class="col-xs-4">
                       <div class="checkbox" data-toggle="tooltip" title="The document focuses on trade promotion.">
                         <label>
-                          <input type="checkbox" id="promotion"/>
-                          Promotion</label></div>
+                          <input type="checkbox" id="trade_promotion"/>
+                          Trade Promotion</label></div>
                       <div class="checkbox" data-toggle="tooltip" title="The document focuses on standards and/or quality management.">
                         <label>
                           <input type="checkbox" id="quality"/>
@@ -372,18 +367,18 @@
                           TVET</label></div>
                     </div>
                     <div class="col-xs-4">
-                      <div class="checkbox" data-toggle="tooltip" title="">
+                      <div class="checkbox" data-toggle="tooltip" title="The document has a regional scope. The information included applies to a group of countries.">
                         <label>
-                          <input type="checkbox" id="regional_scope"/>
+                          <input type="checkbox" id="regional"/>
                           Regional Scope</label></div>
-                      <div class="checkbox" data-toggle="tooltip" title="">
+                      <div class="checkbox" data-toggle="tooltip" title="The document focuses on regional integration.">
                         <label>
                           <input type="checkbox" id="regional_integration"/>
                           Regional Integration </label></div>
                       <div class="checkbox" data-toggle="tooltip" title="select all theme options">
                         <label>
                           <input type="checkbox" id="all_theme"/>
-                          All ?</label></div>
+                          select all</label></div>
                     </div>
 
                   </div>
@@ -417,27 +412,25 @@
               <div class="col-xs-3">
 
                   <div class="form-group" data-toggle="tooltip" title="">
-                    <label for="implementation">Implementation</label>
-                    <br>
+
                     <div class="checkbox" data-toggle="tooltip" title="The document includes a detailed plan of action.">
                       <label>
                         <input type="checkbox" id="action_plan" />
-                        Action Plan</label></div>
+                        Plan of Action</label></div>
                     <div class="checkbox" data-toggle="tooltip" title="The document provides for a National Export Council (NEC) or a similar type of institution.">
                       <label>
                         <input type="checkbox" id="nec"/>
                         NEC</label></div>
                     <div class="checkbox" data-toggle="tooltip" title="Resources have been allocated for the implementation of the document’s plan of action.">
                       <label>
-                        <input type="checkbox" id="resources_allocated"/>
-                        Resources</label></div>
+                        <input type="checkbox" id="allocated_resources"/>
+                        Resources Allocated</label></div>
                   </div>
 
               </div>
               <div class="col-xs-3">
                                   <div class="form-group" data-toggle="tooltip" title="">
-                    <label for="s">Skate holders</label>
-                    <br>
+
                     <div class="checkbox" data-toggle="tooltip" title="The document is fully owned by the country.">
                       <label>
                         <input type="checkbox" id="country_owned"/>
@@ -445,7 +438,7 @@
                       </label>
                     </div>
 
-                    <div class="checkbox" data-toggle="tooltip" title="Strategy document facilitated by ITC.">
+                    <div class="checkbox" data-toggle="tooltip" title="Document facilitated by the International Trade Centre (ITC).">
                       <label>
                         <input type="checkbox" id="itc"/>
                         ITC</label></div>
@@ -461,7 +454,7 @@
                  <div class="checkbox" data-toggle="tooltip" title="select all process options">
                       <label>
                         <input type="checkbox" id="all_process"/>
-                        All ? </label></div>
+                        select all</label></div>
                   </div>
 
               </div>
@@ -635,8 +628,15 @@
 
 </div>
       </div>
-                        <table class="table table-default table-sortable table-no-hover table-disable-hover" data-show-columns="true"
-                               data-sort-name="name" data-sort-order="desc" data-pagination="true" data-query-params="queryParams">
+<table class="table table-default table-no-hover table-disable-hover"
+       data-toggle="table"
+       data-url="http://localhost:3003/documents"
+       data-pagination="true"
+       data-side-pagination="server"
+       data-page-list="[2, 4, 5]"
+       data-search="true"
+
+                               >
                             <thead>
                             <tr>
                                 <th class="col-xs-4"  >
