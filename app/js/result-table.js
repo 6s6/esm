@@ -131,6 +131,7 @@ function queryParams(params) {
 
 
 var the_options={
+//    "url":"http://localhost:3003/documents",
     "url":"http://desarrollo.enjava.com:3000/documents",
     sidePagination:"server",
     pagination:true,
