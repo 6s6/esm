@@ -91,16 +91,14 @@ function yearFormatter(value){
 }
 
 var row1={
-            left: {region: "Europe", country:"Spain", countryCode:"ESP"},
-            middle: {title: "ESP-Diagnostic Trade Integration Study - Espain",
-                description:"The document analyzes the current economic situation and the determinants of poverty in Angola, and it outlines policy actions in ten main areas of intervention: 1) probation; 2) demining; 3) food security and rural development; 4) HIV/AIDS; 5) Education; 6) Health; 7) Basic infrastructures; 8) professional training and employment; 9) governance; 10) macroeconomic governance. \
+    left: {region: "Europe", country:"Spain", countryCode:"ESP"},
+    middle: {title: "ESP-Diagnostic Trade Integration Study - Espain",
+        description:"The document analyzes the current economic situation and the determinants of poverty in Angola, and it outlines policy actions in ten main areas of intervention: 1) probation; 2) demining; 3) food security and rural development; 4) HIV/AIDS; 5) Education; 6) Health; 7) Basic infrastructures; 8) professional training and employment; 9) governance; 10) macroeconomic governance. \
 The DTIS provides an overview of the current economic situation in Angola and of the main issues regarding poverty and trade. It analyses the key problems affecting infrastructures, trade regime and institutions, commercial barriers, trade facilitation and private sector development. \
-The Programme of Cooperation is aligned with the Common Country Programme Document, the National Strategy for Development and Integration 2007-2013 and the Millennium Development Goals. Hence, the goal of the Programme is to promote fair and sustainable development, social inclusion, respect of international standards and obligations in light of the integration of Albania into the European Union. Specific expected outcomes are identified within four main areas of intervention: governance and rule of law, economy and environment, regional and local development, inclusive and social policy.", sectors:["Coffee", "Cashew","Farming" , "Lorem", "sector1", "sector2", "sector3", "sector4", "sector5", "sector6", "sector7", "sector8","Coffee", "Cashew","Farming" , "Lorem", "sector1", "sector2", "sector3", "sector4", "sector5", "sector6", "sector7", "sector8"]
-
-            },
-            right: {type: "UNAAF",
-                year:2003, implementationPeriod:"2007-2010",lastUpdate:"Thu May 28 2015"}
-
+The Programme of Cooperation is aligned with the Common Country Programme Document, the National Strategy for Development and Integration 2007-2013 and the Millennium Development Goals. Hence, the goal of the Programme is to promote fair and sustainable development, social inclusion, respect of international standards and obligations in light of the integration of Albania into the European Union. Specific expected outcomes are identified within four main areas of intervention: governance and rule of law, economy and environment, regional and local development, inclusive and social policy.",
+        sectors:["Coffee", "Cashew","Farming" , "Lorem", "sector1", "sector2", "sector3", "sector4", "sector5", "sector6", "sector7", "sector8","Coffee", "Cashew","Farming" , "Lorem", "sector1", "sector2", "sector3", "sector4", "sector5", "sector6", "sector7", "sector8"]
+    },
+    right: {type: "UNAAF",year:2003, implementationPeriod:"2007-2010",lastUpdate:"Thu May 28 2015"}
 };
 
 var row2={
@@ -114,26 +112,39 @@ var row2={
 
 var data=[row1, row2];
 
-function queryParams() {
-    return {
-        per_page: 1,
-        page: 1
+function queryParams(params) {
+    console.log("receiveing:", params);
+    var r ={
+        sort: params.sort,
+        order:params.order,
+        limit: params.limit,
+        offset: params.offset
     };
+    console.log("returning:", r);
+    return r;
 }
+// method:'get',
+// "pagination": true,
 
-function resultTableOptions(the_data, the_columns){
-    return {
-        method:'get',
+//         "page-size":"2",
+//        "side-pagination":"server",
+
+
+var the_options={
+    "url":"http://desarrollo.enjava.com:3000/documents",
+    sidePagination:"server",
+    pagination:true,
+        method:"get",
+        sortName:"region left",
+        sortOrder:"asc",
+        pageSize:5,
+        queryParams:queryParams,
         cache: false,
         striped: false,
-        pagination: true,
-        "query-params":"queryParams",
-        pageSize: 5,
-        pageList: [10, 25, 50, 100, 200],
+        pageList: [5, 10, 20, 30],
         search: false,
         showRefresh: false,
         showColumns: false,
-        minimumCountColumns: 2,
         showHeader:false,
         clickToSelect: false,
         iconsPrefix: 'fa',
@@ -145,11 +156,12 @@ function resultTableOptions(the_data, the_columns){
 	    refresh: 'fa-refresh icon-refresh',
 	    toggle: 'fa-list-alt icon-list-alt',
 	    columns: 'fa-th icon-th'
-        },
-        data:the_data ,
-        columns: the_columns
-    };}
+        }
+    };
 
+function resultTableOptions(the_columns){
+    the_options.columns= the_columns;
+    return the_options;}
 
 var column1={
 	        field: "left",
@@ -206,21 +218,9 @@ var $resultTableContainer = $('.results-table');
 
 var $resultTable = $resultTableContainer.find('table');
 
-$resultTable.bootstrapTable(resultTableOptions(data, the_columns));
+$resultTable.bootstrapTable(resultTableOptions( the_columns));
 
-var $tableHeadings = $resultTable.find('thead tr th');
-
-/*
-$.each(resultTableOptions.columns, function(columnIdx, columnData){
-    var $header = $($tableHeadings.get(columnIdx));
-    $header.tooltip({
-	title: columnData.description,
-	container:$resultTableContainer
-    });
-});
-*/
-
-$('.fixed-table-toolbar').prepend($('.pagination-detail').html()).addClass('text-muted');
+// $('.fixed-table-toolbar').prepend($('.pagination-detail').html()).addClass('text-muted');
 
 function is_asc(order_id){
     if(order_id==="asc"){
@@ -280,15 +280,16 @@ function order_by(id, asc){
 
 $('#sorter').on('change', function() {
     var r={};
-    $.extend(true, r , resultTableOptions(data, the_columns));
+    $.extend(true, r , resultTableOptions(the_columns));
 //        r.showHeader=true;
  //       r.showRefresh=false;
 //        r.data=data;
 //        r.showColumns= true;
     //        alert("value_selected:"+ this.value);
 
-    r.data=order_by(this.value, is_asc($('#sorter-how').val()));
+
     $('.results-table').find('table').bootstrapTable('destroy');
+        r.sortName=this.value;
     $('.results-table').find('table').bootstrapTable(r);
     evaluate_show_less("short-text full-text");
 });
@@ -296,15 +297,21 @@ $('#sorter').on('change', function() {
 $('#sorter-how').on('change', function() {
     var r={};
 
-    $.extend(true, r , resultTableOptions(data, the_columns));
+    $.extend(true, r , resultTableOptions(the_columns));
 //        r.showHeader=true;
  //       r.showRefresh=false;
 //        r.data=data;
 //        r.showColumns= true;
-    //        alert("value_selected:"+ this.value);
+//            alert("value_selected:"+ this.value);
 
-    r.data=order_by($('#sorter').val(), is_asc(this.value));
+//    r.data=order_by($('#sorter').val(), is_asc(this.value));
     $('.results-table').find('table').bootstrapTable('destroy');
+    r.sortOrder=this.value;
     $('.results-table').find('table').bootstrapTable(r);
     evaluate_show_less("short-text full-text");
 });
+
+$resultTable.on('load-success.bs.table', function (e, name, args) {
+        console.log('Event:', name, ', data:', args);
+        evaluate_show_less("short-text full-text");
+    });

@@ -6509,9 +6509,6 @@ body {
   display: inline-block;
   position: absolute;
 }
-.pagination-detail > .pagination-info {
-  display: none;
-}
 .fixed-table-container {
   border: none;
   margin-bottom: 0 !important;
