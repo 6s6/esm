@@ -574,54 +574,53 @@
 
                 <div class="card">
                     <div class="card-content">
-                        <ul id="custom-toolbar" class="custom-table-toolbar">
-                            <li>
+                        <div id="custom-toolbar" class="row">
+
+                      <div class="col-md-3">
+                        <ul class="custom-table-toolbar">
+                          <li>
                             <span class="dropdown pull-right">
-                                <button href="#" title="Export data" data-toggle="dropdown" class="btn btn-default">
-                                    <i class="fa fa-download fa-fw"></i> Export results
-                                    <i class="fa fa-caret-down"></i>
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="#"><i class="fa fa-file-excel-o"></i> XLS</a></li>
-                                    <li><a href="#"><i class="fa fa-file-pdf-o"></i> PDF</a></li>
-                                    <li><a href="#"><i class="fa fa-file-text-o"></i> CSV</a></li>
-                                </ul>
+                              <button href="#" title="Export data" data-toggle="dropdown" class="btn btn-default">
+                                <i class="fa fa-download fa-fw"></i> Export results
+                                <i class="fa fa-caret-down"></i>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="#"><i class="fa fa-file-excel-o"></i> XLS</a></li>
+                                <li><a href="#"><i class="fa fa-file-pdf-o"></i> PDF</a></li>
+                                <li><a href="#"><i class="fa fa-file-text-o"></i> CSV</a></li>
+                              </ul>
                             </span>
+                          </li>
+                          <li>
+                                          <a href="#" title="Print chart" class="btn btn-default" data-toggle="tooltip"><i class="fa fa-print" ></i></a>
                             </li>
-                            <li>
-                                <a href="#" title="Print chart" class="btn btn-default" data-toggle="tooltip"><i class="fa fa-print" ></i></a>
-                            </li>
+
                         </ul>
+                      </div>
+                      <div class="col-md-5">
+                        <select id="sorter">
+                          <option value="region left" selected="selected">Order by: Region</option>
+                          <option value="country left">Order by: Country</option>
+                          <option value="countryCode left">Order by: Country Code</option>
+                          <option value="title middle">Order by: Title</option>
+                          <option value="year right" >Order by: Year</option>
+                          <option value="implementationPeriod right">Order by: Implementation Period</option>
+                          <option value="lastUpdate right">Order by: Last Update</option>
+                        </select>
+                      </div>
+                      <div class="col-md-4">
+                        <select id="sorter-how">
+                          <option value="asc" selected="selected">Ascendent</option>
+                          <option value="desc">Descendent</option>
+                        </select>
+
+                      </div>
 
 
-                        <!-- results table -->
-                        <!-- this utilizes bootstrap-table with lots of filtering/sorting options and ability to load remote JSON -->
-                        <!-- http://wenzhixin.net.cn/p/bootstrap-table/ -->
+                    </div>
 
-<div class="row sorters" >
-        <div class="col-md-8"></div>
 
-        <div class="col-md-2">
 
-<select id="sorter">
-
-    <option value="region">Order by: Region</option>
-    <option value="country">Order by: Country</option>
-    <option value="countryCode">Order by: Country Code</option>
-    <option value="title">Order by: Title</option>
-    <option value="year" selected>Order by: Year</option>
-    <option value="implementationPeriod">Order by: Implementation Period</option>
-    <option value="lastUpdate">Order by: Last Update</option>
-</select>
-        </div>
-        <div class="col-md-2">
-<select id="sorter-how">
-    <option value="asc" selected>Ascendent</option>
-    <option value="desc">Descendent</option>
-</select>
-
-</div>
-      </div>
 <table class="table table-default table-no-hover table-disable-hover"
                                >
                             <thead>

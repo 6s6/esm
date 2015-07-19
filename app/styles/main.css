@@ -6452,6 +6452,7 @@ body {
 }
 .custom-table-toolbar {
   list-style: none;
+  line-height: 2px;
   padding: 0;
   margin: 0;
 }
@@ -6763,5 +6764,8 @@ div.text-container {
 }
 .well {
   padding: 11px;
+}
+.bars {
+  width: 70%;
 }
 /*# sourceMappingURL=main.css.map */
