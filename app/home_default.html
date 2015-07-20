@@ -280,6 +280,19 @@
 
                 <div class="card">
                   <div class="card-content">
+                    <div class="row">
+                      <div class="control-group">
+					<label for="show-columns">States:</label>
+					<select id="show-columns" name="state[]" multiple class="demo-default" style="width:50%" placeholder="Include extra column...">
+					</select>
+				</div>
+				<script>
+/*				$('#select-state').selectize({
+					maxItems: 3
+});
+*/
+				</script>
+                      </div>
                     <div id="custom-toolbar" class="row">
 
                       <div class="col-md-3">
@@ -427,7 +440,8 @@
     </footer>
 
 
-<script src="js/vendor/jquery-1.10.1.min.js"></script>
+    <script src="js/vendor/jquery-1.10.1.min.js"></script>
+    <script src="js/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
 <script src="js/vendor/bootstrap-modalmanager.js"></script>
 <script src="js/vendor/selectize.js"></script>
@@ -435,6 +449,7 @@
 <script src="bower_components/bootstrap-table/src/bootstrap-table.js"></script>
 <script src="js/commons.js"></script>
 <script src="js/result-table.js"></script>
+<script src="js/search-advanced.js"></script>
 
 
 <script type="text/javascript">

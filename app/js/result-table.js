@@ -131,8 +131,8 @@ function queryParams(params) {
 
 
 var the_options={
-//    "url":"http://localhost:3003/documents",
-    "url":"http://desarrollo.enjava.com:3000/documents",
+    "url":"http://localhost:3003/documents",
+//    "url":"http://desarrollo.enjava.com:3000/documents",
     sidePagination:"server",
     pagination:true,
         method:"get",
@@ -223,61 +223,6 @@ $resultTable.bootstrapTable(resultTableOptions( the_columns));
 
 // $('.fixed-table-toolbar').prepend($('.pagination-detail').html()).addClass('text-muted');
 
-function is_asc(order_id){
-    if(order_id==="asc"){
-        return true;
-    }else{
-        return false;
-    }
-
-}
-
-function compare_strings(place, data_id, asc){
-    return function (a, b) {
-        if(asc){
-            return a[place][data_id].localeCompare(b[place][data_id]);
-        }else{
-            return b[place][data_id].localeCompare(a[place][data_id]);
-        }
-        };
-}
-
-function compare_numbers(place, data_id, asc){
-    return function (a, b) {
-        if(asc){
-            return a[place][data_id] - b[place][data_id];
-        }else{
-            return b[place][data_id] - a[place][data_id];
-        }
-        };
-}
-
-function order_by(id, asc){
-    if(id==="region"){
-        data.sort(compare_strings("left", id, asc));
-        return data;
-    }else if(id==="country"){
-        data.sort(compare_strings("left", id, asc));
-        return data;
-    }else if(id==="countryCode"){
-        data.sort(compare_strings("left", id, asc));
-        return data;
-    }else if(id==="title"){
-        data.sort(compare_strings("middle", id, asc));
-        return data;
-    }else if(id==="year"){
-        data.sort(compare_numbers("right", id, asc));
-        return data;
-    }else if(id==="implementationPeriod"){
-        data.sort(compare_strings("right", id, asc));
-        return data;
-    }else if(id==="lastUpdate"){
-        data.sort(compare_strings("right", id, asc));
-        return data;
-    }else{
-        console.error("error: this id is not allowed: "+id);
-    }
-}
 
 $('#sorter').on('change', function() {
     var r={};

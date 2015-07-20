@@ -1,16 +1,37 @@
 var select_filters=["select_country","select_region", "select_sector", "select_document_type"];
 var document_tab={
-    checks:["ldc", "lldc"],
+    checks:[{value:"ldc", text:"LDC"}, {value:"lldc", text:"LLDC"}],
     one_option_time:[{id:"DatePublished", val:"2002"}],
     two_option_time:[{id:"StrategyDate", vals:"[2006, 2010]"}],
     selects:["last_update"],
     inputs:["counterpart"]
 
 };
-var theme_tab={checks:["environment", "gender", "poverty_reduction", "youth", "export_strategy", "trade_focus",
-    "trade_facilitation", "trade_finance", "trade_information", "trade_promotion", "quality", "tvet", "regional", "regional_integration", "all_theme"
+    var theme_tab={checks:[
+        {value:"environment",text:"Environment"},
+        {value:"gender", text:"Gender"},
+        {value:"poverty_reduction", text:"Poverty Reduction"},
+        {value:"youth",text:"Youth"},
+        {value:"export_strategy", text:"Export Strategy"},
+        {value:"trade_focus", text:"Trade Focus"},
+        {value:"trade_facilitation", text:"Trade Facilitation"},
+        {value:"trade_finance", text:"Trade Finance"},
+        {value:"trade_information", text:"Trade Information"},
+        {value:"trade_promotion", text:"Trade Promotion"},
+        {value:"quality", text:"Quality Management"},
+        {value:"tvet", text:"Technical and Vocational Education and Training"},
+        {value:"regional", text:"Regional Scope"},
+        {value:"regional_integration", text:"Regional Integration"},
+        {value:"all_theme", text:"Select all", not_table:true}
 ]};
-var process_tab={checks:["action_plan", "nec", "allocated_resources", "country_owned", "itc", "participatory", "all_process"]};
+    var process_tab={checks:[
+        {value:"action_plan", text:"Plan of action"},
+        {value:"nec",text:"National Export Council"},
+        {value:"allocated_resources", text:"Resources allocated"},
+        {value:"country_owned", text:"Country Ownership"},
+        {value:"itc",text:"International Trade Center"},
+        {value:"participatory",text:"Participatory process"},
+        {value:"all_process", text:"Select all", not_table:true}]};
 
 function uncheck(id){
     $('#'+id).prop('checked', false);
@@ -22,13 +43,13 @@ function check(id){
 
 function uncheck_all(ids){
     ids.map(function(id){
-        uncheck(id);
+        uncheck(id.value);
     });
 }
 
 function check_all(ids){
     ids.map(function(id){
-        check(id);
+        check(id.value);
     });
 }
 
@@ -45,7 +66,7 @@ var all_checks=[].concat(document_tab.checks).concat(theme_tab.checks).concat(pr
 
 
 $('#clear_filters').on("click", function(){
-    all_checks.map(function(d){uncheck(d);});
+    all_checks.map(function(d){uncheck(d.value);});
     select_filters.concat(document_tab.selects).map(function(s){
          $('#'+s).selectize()[0].selectize.clear();
     });
@@ -96,3 +117,16 @@ $('#apply_filters').on("click", function colect_all_values(){
     process_tab.checks.map(function(d){console.log(d, "is_checked?", is_checked(d));});
 
     });
+
+
+var all_checks_map=all_checks.map(function(i){if(!i.not_table){return i;}else{return false;}}).filter(function(i){return i;});
+
+//console.log(all_checks_map.map(function(i){return i.value+"-"+i.text;}));
+
+var show_columns_options= {
+    plugins: ['remove_button','drag_drop'],
+    options: all_checks_map,
+    create: false
+};
+
+var selecti = $("#show-columns").selectize(show_columns_options);
