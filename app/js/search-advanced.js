@@ -118,10 +118,9 @@ $('#apply_filters').on("click", function colect_all_values(){
 
     });
 
+var all_checks_map=all_checks.map(function(i){if(!i.not_table){return {text:i.text, value:i.value+"-"+i.text};}else{return false;}}).filter(function(i){return i;});
 
-var all_checks_map=all_checks.map(function(i){if(!i.not_table){return i;}else{return false;}}).filter(function(i){return i;});
-
-//console.log(all_checks_map.map(function(i){return i.value+"-"+i.text;}));
+console.log(all_checks_map.map(function(i){return i.value.split("-")[0];}));
 
 var show_columns_options= {
     plugins: ['remove_button','drag_drop'],
@@ -130,7 +129,3 @@ var show_columns_options= {
 };
 var show_columns=$("#show-columns");
 show_columns.selectize(show_columns_options);
-
-show_columns.on('change', function(e) {
-    console.log(JSON.stringify(show_columns.val()));
-});

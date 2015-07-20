@@ -46,9 +46,6 @@ function countryCodeFormatter(value) {
 function typeFormatter(value){
     return "<span class=\"label label-default label-type\" >"+value+"</span>";
 }
-function leftSorter(a, b) {
-    return a.country.localeCompare(b.country);
-}
 function leftFormatter(value) {
     var t=regionFormatter(value.region);
     var c=countryFormatter(value.country);
@@ -60,17 +57,13 @@ function leftFormatter(value) {
 </div></div> \
 <div style='margin-top:18px;padding:10px;border:1px solid rgb(187, 187, 187);'><img src='/img/maps/"+value.region+".png' width='100%'></div>";
 }
-function middleSorter(a, b) {
-    return a.title.localeCompare(b.title);
-}
+
 function middleFormatter(value) {
     return "<div class='middle-column'><h2 class='middle-column-title'>"+titleFormatter(value.title)+"</h2> \
 "+wrap_show_less("eval-text", value.description)+" \
 <h3 class='middle-column-sectors'>Sectors:</h3> "+wrap_show_less("eval-sectors", sectorsFormatter(value.sectors));
 }
-function rightSorter(a, b) {
-    return a.title.localeCompare(b.title);
-}
+
 function rightFormatter(value) {
     var t=typeFormatter(value.type);
     var year=+value.year;
@@ -90,6 +83,13 @@ function yearFormatter(value){
     return value;
 }
 
+function checkFormatter(value){
+    if(value){
+        return '<i class="fa fa-check-square-o"></i> ';
+    }else{
+        return '<i class="fa fa-square-o"></i> ';
+    }
+    }
 var row1={
     left: {region: "Europe", country:"Spain", countryCode:"ESP"},
     middle: {title: "ESP-Diagnostic Trade Integration Study - Espain",
@@ -166,9 +166,7 @@ function resultTableOptions(the_columns){
 
 var column1={
 	        field: "left",
-	        title: "left",
-	        sortable: true,
-                sorter:"leftSorter",
+	        title: "",
 	        valign: "top",
 	        align: "left",
 	        description: "left header description",
@@ -179,9 +177,7 @@ var column1={
 
 var column2={
 	        field: "middle",
-	        title: "middle",
-	        sortable: true,
-                sorter:"middleSorter",
+	        title: "",
 	        valign: "top",
 	        align: "left",
 	        description: "middle header description",
@@ -191,9 +187,7 @@ var column2={
 
 var column3={
 	        field: "right",
-	        title: "right",
-	        sortable: true,
-                sorter:"rightSorter",
+	        title: "",
 	        valign: "top",
 	        align: "left",
 	        description: "right header description",
@@ -203,7 +197,7 @@ var column3={
 
 var column_new={
 	        field: "new",
-	        title: "right",
+	        title: "",
 	        sortable: true,
 //                sorter:"rightSorter",
 	        valign: "top",
@@ -261,3 +255,38 @@ $resultTable.on('load-success.bs.table', function (e, name, args) {
         console.log('Event:', name, ', data:', args);
         evaluate_show_less("short-text full-text");
     });
+
+
+
+$("#show-columns").on('change', function(e) {
+    var c=JSON.stringify(show_columns.val());
+    console.log(c);
+
+
+    var new_columns=show_columns.val().map(function(o){
+        var e=o.split("-");
+        return {field:e[0], title:e[1], formatter:"checkFormatter"}});
+    console.log(new_columns);
+
+
+    var r={};
+
+    $.extend(true, r , resultTableOptions(the_columns.concat(new_columns)));
+        r.showHeader=true;
+    $('.results-table').find('table').bootstrapTable('destroy');
+    $('.results-table').find('table').bootstrapTable(r);
+    var c =$('.fixed-table-container table').css('width');
+    var pix=parseInt(c.split("px")[0]);
+    console.log("pix", 150+pix );
+    var element =$('.fixed-table-container table');
+    if(new_columns.length>1){
+    element.css('width', (150+pix)+'px');
+}
+//    var n=$('.fixed-table-container table')[0].scrollWidth - $('.fixed-table-container table').innerWidth();
+
+    evaluate_show_less("short-text full-text");
+
+
+
+
+});

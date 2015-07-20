@@ -580,12 +580,6 @@
 					<select id="show-columns" name="state[]" multiple class="demo-default" style="width:50%" placeholder="Include extra column...">
 					</select>
 				</div>
-				<script>
-/*				$('#select-state').selectize({
-					maxItems: 3
-});
-*/
-				</script>
                       </div>
 
                         <div id="custom-toolbar" class="row">
@@ -635,8 +629,7 @@
 
 
 
-<table class="table table-default table-no-hover table-disable-hover"
-                               >
+<table class="table table-default table-no-hover table-disable-hover search-table" style="overflow: auto;overflow-y: hidden;-ms-overflow-y: hidden;">
                             <thead>
                             <tr>
                                 <th class="col-xs-4"  >
@@ -677,9 +670,10 @@
 <script src="bower_components/bootstrap-table/src/bootstrap-table.js"></script>
 <script src="bower_components/bootstrap3-datepicker/js/bootstrap-datepicker.js"></script>
 <script src="js/commons.js"></script>
+<script src="js/search-advanced.js"></script>
 <script src="js/result-table.js"></script>
 
-<script src="js/search-advanced.js"></script>
+
 <script type="text/javascript">
   $(document).ready(function () {
 
