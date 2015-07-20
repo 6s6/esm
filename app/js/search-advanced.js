@@ -128,5 +128,9 @@ var show_columns_options= {
     options: all_checks_map,
     create: false
 };
+var show_columns=$("#show-columns");
+show_columns.selectize(show_columns_options);
 
-var selecti = $("#show-columns").selectize(show_columns_options);
+show_columns.on('change', function(e) {
+    console.log(JSON.stringify(show_columns.val()));
+});
