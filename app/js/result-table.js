@@ -131,8 +131,8 @@ function queryParams(params) {
 
 
 var the_options={
-  //  "url":"http://localhost:3003/documents",
-    "url":"http://desarrollo.enjava.com:3000/documents",
+    "url":"http://localhost:3003/documents",
+  //  "url":"http://desarrollo.enjava.com:3000/documents",
     sidePagination:"server",
     pagination:true,
         method:"get",
@@ -252,11 +252,11 @@ $('#sorter-how').on('change', function() {
 });
 
 $resultTable.on('load-success.bs.table', function (e, name, args) {
-        console.log('Event:', name, ', data:', args);
+//        console.log('Event:', name, ', data:', args);
         evaluate_show_less("short-text full-text");
     });
 
-
+var original_width;
 
 $("#show-columns").on('change', function(e) {
     var c=JSON.stringify(show_columns.val());
@@ -265,23 +265,29 @@ $("#show-columns").on('change', function(e) {
 
     var new_columns=show_columns.val().map(function(o){
         var e=o.split("-");
-        return {field:e[0], title:e[1], formatter:"checkFormatter"}});
+        return {field:e[0], title:e[1], formatter:"checkFormatter", class:"f-column-width"}});
     console.log(new_columns);
 
 
     var r={};
 
     $.extend(true, r , resultTableOptions(the_columns.concat(new_columns)));
-        r.showHeader=true;
+    r.showHeader=true;
+
     $('.results-table').find('table').bootstrapTable('destroy');
     $('.results-table').find('table').bootstrapTable(r);
-    var c =$('.fixed-table-container table').css('width');
-    var pix=parseInt(c.split("px")[0]);
-    console.log("pix", 150+pix );
-    var element =$('.fixed-table-container table');
+
+
+
+    if(!original_width){ original_width= $('#juan').css('width');}
+    var pix=parseInt(original_width.split("px")[0]);
+
     if(new_columns.length>1){
-    element.css('width', (150+pix)+'px');
-}
+
+        var extra=100*new_columns.length;
+        console.log("new width:=>", (pix+extra));
+        $('#juan').css('width', (pix+extra)+'px');
+    }
 //    var n=$('.fixed-table-container table')[0].scrollWidth - $('.fixed-table-container table').innerWidth();
 
     evaluate_show_less("short-text full-text");

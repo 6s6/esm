@@ -113,47 +113,59 @@
 
 
         <div class="row">
-            <h2 class="col-xs-12 col-md-9">Diagnostic Trade Integration Study - Benin</h2>
-            <ul class="list-inline col-xs-12 col-md-3 text-right">
-                <li><a href="#"><i class="fa fa-facebook-square fa-2x"></i></a> </li>
-                <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a> </li>
-                <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a> </li>
-            </ul>
+
 
         </div>
 
         <div class="row">
             <div class="col-xs-12 col-sm-9">
                 <div class="card">
-                    <div class="card-content">
-                        <table style="width: 100%;">
+                  <div class="card-content">
+                    <div class="row">
+                           <h2 class="col-xs-12 col-md-9"></h2>
+            <ul class="list-inline col-xs-12 col-md-3 text-right">
+                <li><a href="#"><i class="fa fa-facebook-square fa-2x"></i></a> </li>
+                <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a> </li>
+                <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a> </li>
+            </ul>
+                      <h3 style="margin-top:25px; margin-left:30px;">Diagnostic Trade Integration Study - Benin</h3>
+                      <div class="well" style="background-color:#efefef;border-color:#999999;margin-left:30px;margin-right:30px;margin-top:30px;">
+   <table style="width: 100%;background-color:#efefef;">
                             <tbody>
                                 <tr>
-                                    <td class="col-xs-3 my-label"><abbr title="Type of Document" data-toggle="tooltip">Document type:</abbr></td>
+                                    <td class="col-xs-3 my-label  boldi " style="font-weight:bold;"><span title="Type of Document" data-toggle="tooltip">Document type:</span></td>
                                     <td><span class="label label-default">UNAAF</span> </td>
                                 </tr>
                                 <tr>
-                                    <td class="col-xs-3 my-label"><abbr title="Country" data-toggle="tooltip">Country:</abbr></td>
+                                    <td class="col-xs-3 my-label  boldi" style="font-weight:bold;"><span title="Country" data-toggle="tooltip">Country:</span></td>
                                     <td>Nigeria, NI</td>
-                                    <td class="my-label"><abbr data-toggle="tooltip" title="Region">Region:</abbr></td>
+                                    <td class="my-label  boldi" style="font-weight:bold;"><span data-toggle="tooltip" title="Region">Region:</span></td>
                                     <td>Africa</td>
                                 </tr>
-                                <tr>
-                                    <td class="col-xs-3 my-label"><abbr data-toggle="tooltip" title="Year">Year:</abbr></td>
-                                    <td colspan="3">2011</td>
 
-                                </tr>
                                 <tr>
-                                    <td class="col-xs-3 my-label"><abbr data-toggle="tooltip" title="Implementation Period">Implementation Period:</abbr></td>
-                                    <td colspan="3"><abbr data-toggle="tooltip" title="Start Year/End Year">2009/2014</abbr></td>
-
+                                    <td class="col-xs-3 my-label  boldi" style="font-weight:bold;"><span data-toggle="tooltip" title="Year">Year:</span></td>
+                                    <td>2011</td>
+                                    <td class="my-label  boldi" style="font-weight:bold;"><span data-toggle="tooltip" title="Implementation Period">Implementation Period:</span></td>
+                                    <td ><span data-toggle="tooltip" title="Start Year/End Year">2009/2014</span></td>
 
                                 </tr>
                             </tbody>
                         </table>
 
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <h3 style="margin-top:25px; margin-left:30px;">Description</h3>
+                      <div class="sectors_detail">
+
+                      The Diagnostic Trade Integration Study provides an analysis of Uganda’s recent economic and trade performance, and it outlines recommendations in order to increase its integration into the world trading system and mainstream good trade policies into national policy-making. In particular the study deals with sub-sector specific as well as economy-wide issues. Among the latter ones, it focuses on power generation, transport and trade facilitation, access to finance, trade policies, regional trade agreements, customs procedures, trade and export development institutions, and sanitary, phyto-sanitary and other standards. Furthermore, the study analyzes Uganda’s access to export markets, concentrating in particular on the European Union and on the potential worldwide developments following the Doha Round.
+                      </div>
+                    </div>
+
                         <div class="row">
-                          <h3 style="margin-top:25px;">Priority Sectors</h3>
+                          <h3 style="margin-top:25px; margin-left:30px;">Priority Sectors</h3>
                           <div class="sectors_detail">
                             <div class="col-xs-12 sectors_s" >
                               <div class="col-xs-12 text-container text-content short-detail-page-text" style="width:100%">
@@ -170,8 +182,8 @@
 
 
                               </div>
-                               <div class="show-more">
-                                  <a href="#">Show more</a>
+                               <div class="show-more" >
+                                  <a href="#" style="color:#6B6B6B;">Show more</a>
                                 </div>
                             </div>
 
@@ -186,7 +198,7 @@
                                 </table>
                             </div>
                             <div class="show-more">
-                            <a href="#">Show more</a>
+                            <a href="#" style="color:#6B6B6B;">Show more</a>
                             </div>
                             </div>
                           </div>
@@ -209,7 +221,7 @@
             </div>
             <div class="hidden-xs col-sm-3">
                 <div class="card">
-                        <div id="map" style="min-height: 400px"></div>
+                        <div id="map" style="min-height: 200px"></div>
                 </div>
                 <div class="card">
                     <div class="card-content">
@@ -295,7 +307,7 @@
         var map = L.map('map', {
             attributionControl: false,
             scrollWheelZoom: false,
-            zoom: 3,
+            zoom: 2,
             minZoom: 1,
             maxZoom: 5,
             continuousWorld: 'false'
@@ -347,7 +359,8 @@
     columns: p_c,
     data:p_d
     }).on('post-body.bs.table', function () {
-    evaluate_show_less("short-detail-page-text full-text");
+      evaluate_show_less_d("short-detail-page-text full-text");
+
     });
 
 
@@ -380,12 +393,12 @@
     columns: s_c,
     data:s_d
     }).on('post-body.bs.table', function () {
-    evaluate_show_less("short-detail-page-text full-text");
+    evaluate_show_less_d("short-detail-page-text full-text");
     });
 
 
-    evaluate_show_less("short-detail-page-text full-text");
 
+  evaluate_show_less_d("short-detail-page-text full-text");
 
     });
 

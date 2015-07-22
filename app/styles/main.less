@@ -1657,7 +1657,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 
 }
 
-.gradient() {
+.gradient(@w,@t) {
   position: relative;
 
 &:after {
@@ -1668,8 +1668,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   width: 100%;
   content: "";
   background: linear-gradient(to top,
-     rgba(255,255,255, 1) 20%,
-     rgba(255,255,255, 0) 80%
+     rgba(255,255,255, 1) @w,
+     rgba(255,255,255, 0) @t
   );
   pointer-events: none; /* so the text is still selectable */
   }
@@ -1706,8 +1706,8 @@ div.text-container {
 
 border-bottom:1px solid rgb(187, 187, 187);
 overflow: hidden;
-    height: 8em;
-    .gradient();
+height: 8em;
+.gradient(20%,80%);
 
 }
 
@@ -1721,6 +1721,8 @@ height: auto;
 .short-detail-page-text {
     overflow: hidden;
     height: 15em;
+    .gradient(1%,99%);
+
 }
 
 
@@ -1908,3 +1910,7 @@ padding:11px;
 }
 .bars{
 width:70%;}
+
+.f-column-width{
+width:2%;
+}

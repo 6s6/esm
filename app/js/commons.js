@@ -5,6 +5,17 @@ function wrap_show_less(css, value){
   <div class='rounded-box'> <a style='margin:10px;' href=\"#\">show more</a></div> \
  </div></div> ";
 }
+    function getShowLinkText(currentText) {
+        var newText = '';
+
+        if (currentText.toUpperCase() === "SHOW MORE") {
+            newText = "show less";
+        } else {
+            newText = "show more";
+        }
+
+        return newText;
+    }
 
 function evaluate_show_less(toggle_classes){
     $(".show-more .rounded-box a").each(function() {
@@ -30,10 +41,44 @@ function evaluate_show_less(toggle_classes){
             $link.hide();
         }
     });
-
+$(".show-more .rounded-box a").unbind("click");
     $(".show-more .rounded-box a").on("click", function() {
         var $link = $(this);
         var $content = $link.parent().parent().prev("div.text-content");
+        var linkText = $link.text();
+        console.log("here", toggle_classes);
+        $content.toggleClass(toggle_classes);
+
+        $link.text(getShowLinkText(linkText));
+
+        return false;
+    });
+
+}
+
+function evaluate_show_less_d(toggle_classes){
+    $(".show-more  a").each(function() {
+        var $link = $(this);
+        var $content = $link.parent().prev("div.text-content");
+
+        var visibleHeight = $content[0].clientHeight;
+        var actualHide = $content[0].scrollHeight - 1;
+
+       // console.log("aH",actualHide,"vH", visibleHeight);
+
+        if (actualHide > visibleHeight) {
+            $content.first().addClass("short-detail-page-text");
+            $link.show();
+
+        } else {
+            $link.hide();
+        }
+    });
+$(".show-more  a").unbind("click");
+
+    $(".show-more  a").on("click", function() {
+        var $link = $(this);
+        var $content = $link.parent().prev("div.text-content");
         var linkText = $link.text();
 
         $content.toggleClass(toggle_classes);
@@ -43,15 +88,4 @@ function evaluate_show_less(toggle_classes){
         return false;
     });
 
-    function getShowLinkText(currentText) {
-        var newText = '';
-
-        if (currentText.toUpperCase() === "SHOW MORE") {
-            newText = "show less";
-        } else {
-            newText = "show more";
-        }
-
-        return newText;
-    }
 }
