@@ -131,7 +131,7 @@ function queryParams(params) {
 
 
 var the_options={
-   // "url":"http://localhost:3003/documents",
+    //"url":"http://localhost:3003/documents",
     "url":"http://desarrollo.enjava.com:3000/documents",
     sidePagination:"server",
     pagination:true,
@@ -278,19 +278,19 @@ $("#show-columns").on('change', function(e) {
     $('.results-table').find('table').bootstrapTable(r);
 
 
-
-    if(!original_width){ original_width= $('#juan').css('width');}
+    if(!original_width){
+        original_width= $('.fixed-table-body').css('width');}
     var pix=parseInt(original_width.split("px")[0]);
 
     if(new_columns.length>1){
 
         var extra=100*new_columns.length;
         console.log("new width:=>", (pix+extra));
-        $('#juan').css('width', (pix+extra)+'px');
+        $('.fixed-table-body').css('width', (pix+extra)+'px');
     }
 //    var n=$('.fixed-table-container table')[0].scrollWidth - $('.fixed-table-container table').innerWidth();
 
-    evaluate_show_less("short-text full-text");
+   evaluate_show_less("short-text full-text");
 
 
 
