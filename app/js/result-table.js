@@ -46,22 +46,35 @@ function countryCodeFormatter(value) {
 function typeFormatter(value){
     return "<span class=\"label label-default label-type\" >"+value+"</span>";
 }
+function country(c, cc){
+    if(c.length>7){
+    return "<div  style='margin-top:8px;border-bottom:0px;margin-bottom:-17px;' class='left-first-colum-first-row'><span class='left-table-row-title'>Country:</span><div style='float:right'> \
+<span  class='table-value boldi' >&nbsp;</span> \
+<span style='color:black;' class='table-value boldi'>&nbsp;</span> \
+</div></div> \
+<div  style='margin-top:8px;' class='left-first-colum-first-row'><span class='left-table-row-title'>&nbsp;</span><div style='float:right'> \
+<span  class='table-value boldi'> "+c+"</span> \
+<span style='color:black;' class='table-value boldi'>"+cc+"</span> \
+</div></div>";
+    }else{
+        return "<div  style='margin-top:8px;' class='left-first-colum-first-row'><span class='left-table-row-title'>Country:</span><div style='float:right'> \
+<span  class='table-value boldi'> "+c+"</span> \
+<span style='color:black;' class='table-value boldi'>"+cc+"</span> \
+</div></div> ";
+    }
+    }
+
 function leftFormatter(value) {
     var t=regionFormatter(value.region);
     var c=countryFormatter(value.country);
     var cc=countryCodeFormatter(value.countryCode);
-    return "<div class='left-first-colum-first-row' ><span class='left-table-row-title'>Region</span><span style='float:right' class='table-value boldi' >"+t+"</span></div> \
-<div  style='margin-top:8px;' class='left-first-colum-first-row'><span class='left-table-row-title'>Country:</span><div style='float:right'> \
-<span  class='table-value boldi'> "+c+"</span> \
-<span style='color:black;' class='table-value boldi'>"+cc+"</span> \
-</div></div> \
-<div style='margin-top:18px;padding:10px;border:1px solid rgb(187, 187, 187);'><img src='/img/maps/"+value.region+".png' width='100%'></div>";
+    return "<div class='left-first-colum-first-row' ><span class='left-table-row-title'>Region:</span><span style='float:right' class='table-value boldi' >"+t+"</span></div> "+country(c, cc)+"<div style='margin-top:18px;padding:10px;border:1px solid rgb(187, 187, 187);'><img src='/img/maps/"+value.region+".png' width='100%'></div>";
 }
 
 function middleFormatter(value) {
     return "<div class='middle-column'><h2 class='middle-column-title'>"+titleFormatter(value.title)+"</h2> \
 "+wrap_show_less("eval-text", value.description)+" \
-<h3 class='middle-column-sectors'>Sectors:</h3> "+wrap_show_less("eval-sectors", sectorsFormatter(value.sectors));
+<h3 class='middle-column-sectors' >Sectors:</h3> "+wrap_show_less("eval-sectors", sectorsFormatter(value.sectors));
 }
 
 function rightFormatter(value) {
@@ -123,12 +136,6 @@ function queryParams(params) {
     console.log("returning:", r);
     return r;
 }
-// method:'get',
-// "pagination": true,
-
-//         "page-size":"2",
-//        "side-pagination":"server",
-
 
 var the_options={
     //"url":"http://localhost:3003/documents",

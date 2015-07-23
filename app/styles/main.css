@@ -6672,10 +6672,12 @@ div.text-container {
 }
 .first-colum-first-row {
   padding-bottom: 3px;
+  padding-top: 10px;
 }
 .left-first-colum-first-row {
   border-bottom: 1px solid #3081c8;
   padding-bottom: 3px;
+  padding-top: 10px;
 }
 .label-table {
   background-color: #97bfe6;
@@ -6707,6 +6709,7 @@ div.text-container {
   border-bottom: 1px solid #3081c8;
   color: #3081c8;
   font-size: 20px;
+  margin-top: -15px;
 }
 .last-update-div {
   margin-top: 50px;
@@ -6787,5 +6790,10 @@ div.text-container {
   overflow: auto;
   overflow-y: hidden;
   -ms-overflow-y: hidden;
+}
+h3.document-detail {
+  margin-top: 25px;
+  margin-left: 30px;
+  color: #002b54;
 }
 /*# sourceMappingURL=main.css.map */
