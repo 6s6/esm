@@ -1,10 +1,10 @@
 var select_filters=["select_country","select_region", "select_sector", "select_document_type"];
 var document_tab={
     checks:[{value:"ldc", text:"LDC"}, {value:"lldc", text:"LLDC"}],
-    one_option_time:[{id:"DatePublished", val:"2002"}],
+    one_option_time:[{id:"Year", val:"2002"}],
     two_option_time:[{id:"StrategyDate", vals:"[2006, 2010]"}],
-    selects:["last_update"],
-    inputs:["counterpart"]
+    selects:["last_update", "counterpart"]
+
 
 };
     var theme_tab={checks:[
@@ -42,12 +42,14 @@ function check(id){
 }
 
 function uncheck_all(ids){
+
     ids.map(function(id){
         uncheck(id.value);
     });
 }
 
 function check_all(ids){
+    console.log(ids);
     ids.map(function(id){
         check(id.value);
     });
@@ -70,13 +72,11 @@ $('#clear_filters').on("click", function(){
     select_filters.concat(document_tab.selects).map(function(s){
          $('#'+s).selectize()[0].selectize.clear();
     });
-    document_tab.inputs.map(function(s){
-        $("#"+s).val("");
-    });
 
 });
 
 $('#all_theme').on("click", function(){
+    console.log("hellpo");
     if(!is_checked("all_theme")){
         uncheck_all(theme_tab.checks);
     }else{
@@ -103,10 +103,11 @@ $('#apply_filters').on("click", function colect_all_values(){
     console.log(" - checkboxes:");
     document_tab.checks.map(function(d){console.log(d, "is_checked?", is_checked(d));});
 
-    console.log("DatePublished", get_slider_value("DatePublished"));
+    console.log("Year", get_slider_value("Year"));
     console.log("StrategyDate", get_slider_value("StrategyDate"));
     console.log("- last_update", get_selectize_value("last_update"));
-    console.log("- counterpart", $("#counterpart").val());
+    console.log("- authority", get_selectize_value("counterpart"));
+
 
     console.log("\n\n Theme_tab:");
     console.log(" - checkboxes:");

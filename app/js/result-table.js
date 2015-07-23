@@ -126,14 +126,14 @@ var row2={
 var data=[row1, row2];
 
 function queryParams(params) {
-    console.log("receiveing:", params);
+//    console.log("receiveing:", params);
     var r ={
         sort: params.sort,
         order:params.order,
         limit: params.limit,
         offset: params.offset
     };
-    console.log("returning:", r);
+  //  console.log("returning:", r);
     return r;
 }
 
@@ -268,13 +268,13 @@ var original_width;
 
 $("#show-columns").on('change', function(e) {
     var c=JSON.stringify(show_columns.val());
-    console.log(c);
+//    console.log(c);
 
 
     var new_columns=show_columns.val().map(function(o){
         var e=o.split("-");
         return {field:e[0], title:e[1], formatter:"checkFormatter", class:"f-column-width"}});
-    console.log(new_columns);
+//    console.log(new_columns);
 
 
     var r={};
@@ -293,7 +293,7 @@ $("#show-columns").on('change', function(e) {
     if(new_columns.length>1){
 
         var extra=100*new_columns.length;
-        console.log("new width:=>", (pix+extra));
+//        console.log("new width:=>", (pix+extra));
         $('.fixed-table-body').css('width', (pix+extra)+'px');
     }
 //    var n=$('.fixed-table-container table')[0].scrollWidth - $('.fixed-table-container table').innerWidth();

@@ -24,7 +24,7 @@ function evaluate_show_less(toggle_classes){
         var $content = $link.parent().parent().prev("div.text-content");
 
         var $title = $link.parent().parent().parent().parent().find("h2.middle-column-title").first();
-        console.log($link.parent().parent().parent().parent().parent().parent().find("div.first-colum-first-row").first().css('padding-top', ($title[0].clientHeight-12)+"px"));
+       $link.parent().parent().parent().parent().parent().parent().find("div.first-colum-first-row").first().css('padding-top', ($title[0].clientHeight-12)+"px");
 
        $link.parent().parent().parent().parent().parent().parent().find("div.left-first-colum-first-row").first().css('padding-top', ($title[0].clientHeight-5)+"px");
   //      console.log("cH", $title[0].clientHeight-12); //
