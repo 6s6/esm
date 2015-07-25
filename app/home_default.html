@@ -97,7 +97,7 @@
     <!-- middle content section -->
 
 
-    <div class="intro hidden-xs hidden-sm">
+    <div id="intro-message" class="intro hidden-xs hidden-sm">
     <div class="alert alert-overlay">
     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span
     class="sr-only">Close</span></button>
@@ -114,7 +114,7 @@
         <section class="filters">
             <div class="container">
                 <div class="card">
-                    <div class="row">
+                    <div class="row" id="s-d">
                         <div class="col-xs-12">
                             <div class="search-controls-wrapper">
                                 <div class="search-controls">
@@ -440,9 +440,16 @@
         currently_selected_country = value;
     }
 
+    $('html').click(function() {
+    var e =$(".alert");
+    if(e){
+    e.hide();
+    }
+    //Hide the menus if visible
+    });
+
 
     $(window).load(function () {
-
         var map = L.map('map', {
             attributionControl: false,
             scrollWheelZoom: false,
@@ -463,6 +470,7 @@
         $('[data-toggle="tooltip"]').tooltip({});
 
 
+
         $('.btn-filter').click(function(evt){
             $('.results-table').collapse('toggle');
 
@@ -472,13 +480,16 @@
                     600, // duration in ms
                     function() { // callback function that runs after the animation (optional)
                         console.log('done!')
-                    }
+    }
+
     );
     $('.results-table').collapse('toggle');
     evaluate_show_less("short-text full-text");
 
-    });
 
+    });
+        console.log(parseInt($('#s-d').offset().top-$('#s-d').height()-40));
+        $(".leaflet-container").height(370);
     });
 
 </script>
