@@ -6807,4 +6807,7 @@ h3.document-detail {
 #juan > thead > tr .th-inner {
   color: #386A9A;
 }
+.fixed-table-toolbar > .bars {
+  width: 100%;
+}
 /*# sourceMappingURL=main.css.map */
