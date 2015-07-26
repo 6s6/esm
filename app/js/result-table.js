@@ -221,8 +221,6 @@ var $resultTableContainer = $('.results-table');
 
 var $resultTable = $resultTableContainer.find('table');
 
-$resultTable.bootstrapTable(resultTableOptions( the_columns));
-
 // $('.fixed-table-toolbar').prepend($('.pagination-detail').html()).addClass('text-muted');
 
 
@@ -259,10 +257,6 @@ $('#sorter-how').on('change', function() {
     evaluate_show_less("short-text full-text");
 });
 
-$resultTable.on('load-success.bs.table', function (e, name, args) {
-//        console.log('Event:', name, ', data:', args);
-        evaluate_show_less("short-text full-text");
-    });
 
 var original_width;
 
@@ -304,3 +298,13 @@ $("#show-columns").on('change', function(e) {
 
 
 });
+
+
+function init_table(callback){
+    $resultTable.bootstrapTable(resultTableOptions( the_columns));
+    $resultTable.on('load-success.bs.table', function (e, name, args) {
+        //        console.log('Event:', name, ', data:', args);
+
+        callback();
+    });
+}
