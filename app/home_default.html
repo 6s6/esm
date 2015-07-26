@@ -476,7 +476,7 @@
     evaluate_show_less("short-text full-text");
 
 // => 1140 instead of $('.bootstrap-table').position().top
-    $("body").animate({scrollTop: parseInt(1140)}, '0', 'swing');
+    $("body,html").animate({scrollTop: parseInt($('.bootstrap-table').position().top)}, '0', 'swing');
 //    $( "body" ).scrollTop( $('.bootstrap-table').position().top - 200 );
  //           $('.results-table').collapse('toggle');
     });
