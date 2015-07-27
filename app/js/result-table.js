@@ -301,6 +301,8 @@ $("#show-columns").on('change', function(e) {
 
 
 function init_table(callback){
+//    alert("init table");
+//    $('.results-table').find('table').bootstrapTable('destroy');
     $resultTable.bootstrapTable(resultTableOptions( the_columns));
     $resultTable.on('load-success.bs.table', function (e, name, args) {
         //        console.log('Event:', name, ', data:', args);

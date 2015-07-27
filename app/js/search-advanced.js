@@ -94,6 +94,7 @@ $('#all_process').on("click", function(){
 });
 
 $('#apply_filters').on("click", function colect_all_values(){
+
     alert("look at the console to see which values are used in this search");
     console.log("main select menu:");
     select_filters.map(function(s){
@@ -101,22 +102,22 @@ $('#apply_filters').on("click", function colect_all_values(){
     });
     console.log("\n\n Document_tab:");
     console.log(" - checkboxes:");
-    document_tab.checks.map(function(d){console.log(d, "is_checked?", is_checked(d));});
+    document_tab.checks.map(function(d){console.log(d, "is_checked?", is_checked(d.value));});
 
     console.log("Year", get_slider_value("Year"));
     console.log("StrategyDate", get_slider_value("StrategyDate"));
     console.log("- last_update", get_selectize_value("last_update"));
     console.log("- authority", get_selectize_value("counterpart"));
 
-
     console.log("\n\n Theme_tab:");
     console.log(" - checkboxes:");
-    theme_tab.checks.map(function(d){console.log(d, "is_checked?", is_checked(d));});
+    theme_tab.checks.map(function(d){console.log(d, "is_checked?", is_checked(d.value));});
 
     console.log("\n\n Process_tab:");
     console.log(" - checkboxes:");
-    process_tab.checks.map(function(d){console.log(d, "is_checked?", is_checked(d));});
-
+    process_tab.checks.map(function(d){console.log(d, "is_checked?", is_checked(d.value));});
+    init_table(function(){$('#card-table').show();console.log("loading results");    evaluate_show_less("short-text full-text");
+});
     });
 
 var all_checks_map=all_checks.map(function(i){if(!i.not_table){return {text:i.text, value:i.value+"-"+i.text};}else{return false;}}).filter(function(i){return i;});
