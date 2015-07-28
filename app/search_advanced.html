@@ -191,7 +191,7 @@
               <span class="glyphicon glyphicon-plus collap plus-minus" aria-hidden="true" ></span>
             </a>
             <a class="" role="button" data-toggle="collapse" href="#collapseDocument" aria-expanded="false" aria-controls="collapseDocument">
-              <span class="collapse-title">Document Field</span></a>
+              <span class="collapse-title">Document field</span></a>
 
             <div class="collapse collapseDiv row" id="collapseDocument">
               <div class="col-xs-2"></div>
@@ -231,7 +231,7 @@
               <div class="col-xs-2" style="margin-left:67px;">
                 <div data-toggle="tooltip" title="Date in which the record has been last updated.">
                   <select class="input-sm" id="last_update">
-                    <option value="">Last Update</option>
+                    <option value="">Latest updates</option>
                     <option value="24H">24 Hrs</option>
                     <option value="1W">1 week</option>
                     <option value="1M">1 month</option>
@@ -265,6 +265,18 @@
                     <label>
                       <input type="checkbox" id="lldc" class=""/>
                       LLDC
+                    </label>
+                  </div>
+                  <div class="checkbox" data-toggle="tooltip" title="Small Island Developing States">
+                    <label>
+                      <input type="checkbox" id="sids" class=""/>
+                      SIDS
+                    </label>
+                  </div>
+                  <div class="checkbox" data-toggle="tooltip" title="Country in the aftermath of conflict">
+                    <label>
+                      <input type="checkbox" id="pcc" class=""/>
+                      Post-conflict countries
                     </label>
                   </div>
 
@@ -395,7 +407,7 @@
               <span class=" glyphicon glyphicon-plus collap plus-minus" aria-hidden="true" ></span>
             </a>
             <a class="" role="button" data-toggle="collapse" href="#collapseProcess" aria-expanded="false" aria-controls="collapseProcess">
-              <span class="collapse-title">Process</span>
+              <span class="collapse-title">Design process</span>
               </a>
             <div class="collapse collapseDiv row" id="collapseProcess">
               <div class="col-xs-2"></div>
@@ -614,14 +626,13 @@
                           <option value="countryCode left">Order by: Country Code</option>
                           <option value="title middle">Order by: Title</option>
                           <option value="year right" >Order by: Year</option>
-                          <option value="implementationPeriod right">Order by: Implementation Period</option>
                           <option value="lastUpdate right">Order by: Last Update</option>
                         </select>
                       </div>
                       <div class="col-md-4">
                         <select id="sorter-how">
-                          <option value="asc" selected="selected">Ascendent</option>
-                          <option value="desc">Descendent</option>
+                          <option value="asc" selected="selected">Ascending</option>
+                          <option value="desc">Descending</option>
                         </select>
 
                       </div>

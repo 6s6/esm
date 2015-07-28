@@ -1,6 +1,6 @@
 var select_filters=["select_country","select_region", "select_sector", "select_document_type"];
 var document_tab={
-    checks:[{value:"ldc", text:"LDC"}, {value:"lldc", text:"LLDC"}],
+    checks:[{value:"ldc", text:"LDC"}, {value:"lldc", text:"LLDC"},{value:"sids", text:"SIDS"},{value:"pcc", text:"Post-conflict countries"}],
     one_option_time:[{id:"Year", val:"2002"}],
     two_option_time:[{id:"StrategyDate", vals:"[2006, 2010]"}],
     selects:["last_update", "counterpart"]

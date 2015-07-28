@@ -52,7 +52,7 @@ function country(c, cc){
 <span  class='table-value boldi' >&nbsp;</span> \
 <span style='color:black;' class='table-value boldi'>&nbsp;</span> \
 </div></div> \
-<div  style='margin-top:8px;' class='left-first-colum-first-row'><span class='left-table-row-title'>&nbsp;</span><div style='float:right'> \
+<div  style='margin-top:8px;' class='left-first-colum-first-row'><span class='left-table-row-title'>&nbsp;</span><div style='float:left'> \
 <span  class='table-value boldi'> "+c+"</span> \
 <span style='color:black;' class='table-value boldi'>"+cc+"</span> \
 </div></div>";
