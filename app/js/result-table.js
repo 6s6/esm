@@ -46,6 +46,7 @@ function countryCodeFormatter(value) {
 function typeFormatter(value){
     return "<span class=\"label label-default label-type\" >"+value+"</span>";
 }
+
 function country(c, cc){
     if(c.length>7){
     return "<div  style='margin-top:8px;border-bottom:0px;margin-bottom:-17px;' class='left-first-colum-first-row'><span class='left-table-row-title'>Country:</span><div style='float:right'> \
@@ -68,7 +69,7 @@ function leftFormatter(value) {
     var t=regionFormatter(value.region);
     var c=countryFormatter(value.country);
     var cc=countryCodeFormatter(value.countryCode);
-    return "<div class='left-first-colum-first-row' ><span class='left-table-row-title'>Region:</span><span style='float:right' class='table-value boldi' >"+t+"</span></div> "+country(c, cc)+"<div style='margin-top:18px;padding:10px;border:1px solid rgb(187, 187, 187);'><img src='/img/maps/"+value.region+".png' width='100%'></div>";
+    return "<div class='left-first-colum-first-row' ><span class='left-table-row-title'>Region:</span><span style='float:right' class='table-value boldi' >"+t+"</span></div> "+country(c, cc)+"<div style='margin-top:18px;padding:10px;border:1px solid rgb(187, 187, 187);'><img src='/img/maps/"+value.region+".png' width='150px'></div>";
 }
 
 function middleFormatter(value) {
@@ -92,38 +93,19 @@ function rightFormatter(value) {
 
 
 }
+
 function yearFormatter(value){
     return value;
 }
 
-function checkFormatter(value){
-    if(value){
-        return '<i class="fa fa-check-square-o"></i> ';
+function checkFormatter(check){
+    var title="<span class='check-title'>"+all_checks.filter(function(o){return o.value==check.title;})[0].text+"</span><br>";
+    if(check.value){
+        return title+'<i class="fa fa-check-square-o"></i> ';
     }else{
-        return '<i class="fa fa-square-o"></i> ';
+        return title+'<i class="fa fa-square-o"></i> ';
     }
     }
-var row1={
-    left: {region: "Europe", country:"Spain", countryCode:"ESP"},
-    middle: {title: "ESP-Diagnostic Trade Integration Study - Espain",
-        description:"The document analyzes the current economic situation and the determinants of poverty in Angola, and it outlines policy actions in ten main areas of intervention: 1) probation; 2) demining; 3) food security and rural development; 4) HIV/AIDS; 5) Education; 6) Health; 7) Basic infrastructures; 8) professional training and employment; 9) governance; 10) macroeconomic governance. \
-The DTIS provides an overview of the current economic situation in Angola and of the main issues regarding poverty and trade. It analyses the key problems affecting infrastructures, trade regime and institutions, commercial barriers, trade facilitation and private sector development. \
-The Programme of Cooperation is aligned with the Common Country Programme Document, the National Strategy for Development and Integration 2007-2013 and the Millennium Development Goals. Hence, the goal of the Programme is to promote fair and sustainable development, social inclusion, respect of international standards and obligations in light of the integration of Albania into the European Union. Specific expected outcomes are identified within four main areas of intervention: governance and rule of law, economy and environment, regional and local development, inclusive and social policy.",
-        sectors:["Coffee", "Cashew","Farming" , "Lorem", "sector1", "sector2", "sector3", "sector4", "sector5", "sector6", "sector7", "sector8","Coffee", "Cashew","Farming" , "Lorem", "sector1", "sector2", "sector3", "sector4", "sector5", "sector6", "sector7", "sector8"]
-    },
-    right: {type: "UNAAF",year:2003, implementationPeriod:"2007-2010",lastUpdate:"Thu May 28 2015"}
-};
-
-var row2={
-            left: {region: "Africa", country:"Benin", countryCode:"BEN"},
-            middle: {title: "Diagnostic Trade Integration Study - Benin",
-                description:"Agro-Processing Industry, Cashew, Cotton, Fisheries, Pineapple, Shea, Shrimp Farming,Tourism,Agro-Processing Industry, Cashew, Cotton, Fisheries, Pineapple, Shea, Shrimp Farming,Tourism", sectors:["Coffee", "Cashew","Farming" , "Lorem"]
-            },
-            right: {type: "UNAAF",
-                year:2005, implementationPeriod:"2008-2012",lastUpdate:"Fry Jul 13 2012"}
-        };
-
-var data=[row1, row2];
 
 function queryParams(params) {
 //    console.log("receiveing:", params);
@@ -179,7 +161,7 @@ var column1={
 	        align: "left",
 	        description: "left header description",
                 formatter:"leftFormatter",
-                class:"col-md-2"
+                class:"col-md-2 column1"
 
 };
 
@@ -200,7 +182,7 @@ var column3={
 	        align: "left",
 	        description: "right header description",
                 formatter:"rightFormatter",
-                class:"col-md-3"
+                class:"col-md-3 column3"
 	    };
 
 var column_new={
@@ -274,7 +256,7 @@ $("#show-columns").on('change', function(e) {
     var r={};
 
     $.extend(true, r , resultTableOptions(the_columns.concat(new_columns)));
-    r.showHeader=true;
+//    r.showHeader=true;
 
     $('.results-table').find('table').bootstrapTable('destroy');
     $('.results-table').find('table').bootstrapTable(r);

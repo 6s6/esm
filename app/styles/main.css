@@ -6784,6 +6784,7 @@ div.text-container {
 }
 .f-column-width {
   width: 2%;
+  text-align: center;
 }
 .fixed-table-container {
   overflow: auto;
@@ -6811,5 +6812,10 @@ h3.document-detail {
 }
 .leaflet-container {
   background: #efefef;
+}
+.check-title {
+  font-size: 16px;
+  color: #3081c8;
+  font-weight: bolder;
 }
 /*# sourceMappingURL=main.css.map */
