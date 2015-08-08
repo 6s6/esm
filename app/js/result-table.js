@@ -49,16 +49,18 @@ function typeFormatter(value){
 
 function country(c, cc){
     if(c.length>7){
-    return "<div  style='margin-top:8px;border-bottom:0px;margin-bottom:-17px;' class='left-first-colum-first-row'><span class='left-table-row-title'>Country:</span><div style='float:right'> \
+    return "<div  style='margin-top:8px;border-bottom:0px;margin-bottom:-17px;' class='left-first-colum-first-row'><span class='left-table-row-title'>Country:</span> \
+<div style='float:right' class='hidden-div-country'> \
 <span  class='table-value boldi' >&nbsp;</span> \
 <span style='color:black;' class='table-value boldi'>&nbsp;</span> \
-</div></div> \
-<div  style='margin-top:8px;' class='left-first-colum-first-row'><span class='left-table-row-title'>&nbsp;</span><div style='float:left'> \
+</div> \
+</div> \
+<div  style='margin-top:8px;' class='left-first-colum-first-row'><span class='left-table-row-title'>&nbsp;</span><div class='div-country'> \
 <span  class='table-value boldi'> "+c+"</span> \
 <span style='color:black;' class='table-value boldi'>"+cc+"</span> \
 </div></div>";
     }else{
-        return "<div  style='margin-top:8px;' class='left-first-colum-first-row'><span class='left-table-row-title'>Country:</span><div style='float:right'> \
+        return "<div  style='margin-top:8px;' class='left-first-colum-first-row'><span class='left-table-row-title'>Country:</span><div class='div-country'> \
 <span  class='table-value boldi'> "+c+"</span> \
 <span style='color:black;' class='table-value boldi'>"+cc+"</span> \
 </div></div> ";
@@ -69,7 +71,11 @@ function leftFormatter(value) {
     var t=regionFormatter(value.region);
     var c=countryFormatter(value.country);
     var cc=countryCodeFormatter(value.countryCode);
-    return "<div class='left-first-colum-first-row' ><span class='left-table-row-title'>Region:</span><span style='float:right' class='table-value boldi' >"+t+"</span></div> "+country(c, cc)+"<div style='margin-top:18px;padding:10px;border:1px solid rgb(187, 187, 187);'><img src='/img/maps/"+value.region+".png' width='150px'></div>";
+    return "<div class='left-first-colum-first-row' > \
+<span class='left-table-row-title'>Region:</span><div class='span-region table-value boldi' >"+t+"</div></div> \
+"+country(c, cc)+" \
+<div style='margin-top:18px;padding:10px;border:1px solid rgb(187, 187, 187);text-align: center;'> \
+<img class='world' src='/img/maps/"+value.region+".png' ></div>";
 }
 
 function middleFormatter(value) {
@@ -82,11 +88,11 @@ function rightFormatter(value) {
     var t=typeFormatter(value.type);
     var year=+value.year;
     var iP= value.implementationPeriod;
-    return "<div class='first-colum-first-row' style='padding-top:20px;'><span class='table-row-title'>Type: </span><span style='float:right' class='table-value ' >"+t+"</span><hr class='hr-table-column'></div> \
-<div   class='left-first-colum-first-row'><span class='left-table-row-title'>Year:</span><div style='float:right'> \
+    return "<div class='first-colum-first-row first-colum-first-row-bis' ><span class='table-row-title ' >Type: </span><span style='float:right' class='table-value ' >"+t+"</span><hr class='hr-table-column'></div> \
+<div   class='left-first-colum-first-row'><span class='left-table-row-title'>Year:</span><div class='div-year'> \
 <span  class='table-value boldi'> "+year+"</span> \
 </div></div> \
-<div   class='left-first-colum-first-row'><span class='left-table-row-title'>Period:</span><div style='float:right'> \
+<div   class='left-first-colum-first-row'><span class='left-table-row-title'>Period:</span><div class='div-ip' > \
 <span  class='table-value boldi'> "+iP+"</span> \
 </div></div> \
 <div class='last-update-div'> <span class='last-update'>last update: </span><span class='last-update-value'>"+value.lastUpdate+"</span></div></div>"
@@ -182,7 +188,7 @@ var column3={
 	        align: "left",
 	        description: "right header description",
                 formatter:"rightFormatter",
-                class:"col-md-3 column3"
+                class:"column3 col-md-3 "
 	    };
 
 var column_new={
@@ -220,6 +226,7 @@ $('#sorter').on('change', function() {
         r.sortName=this.value;
     $('.results-table').find('table').bootstrapTable(r);
     evaluate_show_less("short-text full-text");
+    reload_event();
 });
 
 $('#sorter-how').on('change', function() {
@@ -237,6 +244,7 @@ $('#sorter-how').on('change', function() {
     r.sortOrder=this.value;
     $('.results-table').find('table').bootstrapTable(r);
     evaluate_show_less("short-text full-text");
+    reload_event();
 });
 
 
@@ -276,7 +284,7 @@ $("#show-columns").on('change', function(e) {
 
    evaluate_show_less("short-text full-text");
 
-
+    reload_event();
 
 
 });
@@ -286,9 +294,19 @@ function init_table(callback){
 //    alert("init table");
 //    $('.results-table').find('table').bootstrapTable('destroy');
     $resultTable.bootstrapTable(resultTableOptions( the_columns));
-    $resultTable.on('load-success.bs.table', function (e, name, args) {
+    $('.results-table').on('load-success.bs.table', function (e, name, args) {
         //        console.log('Event:', name, ', data:', args);
-
+        console.log("jijij");
+        evaluate_show_less("short-text full-text");
         callback();
     });
+    reload_event();
+}
+
+function reload_event(){
+$('.results-table').on('all.bs.table', function (e, data) {
+    evaluate_show_less("short-text full-text");
+    console.log("jau");
+});
+    evaluate_show_less("short-text full-text");
 }

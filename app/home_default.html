@@ -471,15 +471,13 @@
 
 
 
-    init_table(function(){
+    init_table(
+        function(){
 
-    evaluate_show_less("short-text full-text");
+            $("body,html").animate({scrollTop: parseInt($('.bootstrap-table').position().top)}, '0', 'swing');
+            evaluate_show_less("short-text full-text");
 
-// => 1140 instead of $('.bootstrap-table').position().top
-    $("body,html").animate({scrollTop: parseInt($('.bootstrap-table').position().top)}, '0', 'swing');
-//    $( "body" ).scrollTop( $('.bootstrap-table').position().top - 200 );
- //           $('.results-table').collapse('toggle');
-    });
+        });
 
     });
     $('html').click(function() {
@@ -489,7 +487,6 @@
     }
     //Hide the menus if visible
     });
-
     });
 
 </script>

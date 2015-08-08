@@ -5118,7 +5118,7 @@ div.fixed-table-scroll-outer {
 	enable 3D acceleration
 	to be investigated whether this actually provides noticeable improvement
 	in rendering performance
- */
+*/
 .csstransforms3d body {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -6691,7 +6691,7 @@ div.text-container {
   border-radius: .75em;
 }
 .label-type {
-  font-size: 16px;
+  font-size: 14px;
   background-color: #3081c8;
   font-weight: lighter;
   line-height: 2;
@@ -6720,41 +6720,6 @@ div.text-container {
 .last-update {
   font-style: italic;
   color: gray;
-}
-@media (max-width: 760px) {
-  .label {
-    display: block;
-    margin-bottom: 4px;
-  }
-}
-@media (max-width: 480px) {
-  .label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  .label-type {
-    font-size: 11px;
-    background-color: #3081c8;
-    font-weight: lighter;
-    line-height: 1;
-    padding: 7px;
-    border-radius: 0.45em;
-  }
-  .middle-column {
-    margin-right: 10px;
-    margin-left: 10px;
-  }
-  .middle-column-title {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #3081c8;
-    font-size: 16px;
-  }
-  .table-value {
-    font-size: 12px;
-  }
-  .left-table-row-title {
-    font-size: 14px;
-  }
 }
 .search-tab {
   margin: 13px;
@@ -6817,5 +6782,128 @@ h3.document-detail {
   font-size: 16px;
   color: #3081c8;
   font-weight: bolder;
+}
+.world {
+  max-width: 150px;
+}
+.span-region {
+  float: right;
+}
+.div-country {
+  float: right;
+}
+.div-year {
+  float: right;
+}
+.div-ip {
+  float: right;
+}
+.span-type {
+  padding-top: 20px;
+}
+@media (max-width: 760px) {
+  .label {
+    display: block;
+    margin-bottom: 4px;
+  }
+}
+@media (max-height: 260px) {
+  .map-container-home {
+    height: 100px;
+    padding-bottom: 150px;
+  }
+  .map-container-home + main {
+    margin-top: 157px;
+  }
+}
+@media (max-height: 500px) {
+  .map-container-home {
+    height: 200px;
+    padding-bottom: 150px;
+  }
+  .map-container-home + main {
+    margin-top: 200px;
+  }
+}
+@media (max-height: 600px) {
+  .map-container-home {
+    height: 200px;
+    padding-bottom: 150px;
+  }
+  .map-container-home + main {
+    margin-top: 200px;
+  }
+}
+@media (max-width: 300px) {
+  .world {
+    max-width: 50px;
+  }
+}
+@media (max-width: 600px) {
+  .world {
+    max-width: 50px;
+  }
+  .table-value > .label-type {
+    font-size: 11px;
+    padding: 5px;
+  }
+  .middle-column-sectors {
+    border-bottom: 1px solid #3081c8;
+    color: #3081c8;
+    font-size: 16px;
+    margin-top: 0px;
+  }
+  .span-region {
+    float: none;
+  }
+  .div-country {
+    float: none;
+  }
+  .hidden-div-country {
+    display: none;
+  }
+  .div-year {
+    float: none;
+  }
+  .div-ip {
+    float: none;
+  }
+  .first-colum-first-row-bis {
+    padding-top: 55px;
+  }
+  .column3 {
+    padding-top: 24px;
+  }
+  .label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .label-type {
+    font-size: 11px;
+    background-color: #3081c8;
+    font-weight: lighter;
+    line-height: 1;
+    padding: 7px;
+    border-radius: 0.45em;
+  }
+  .middle-column {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .middle-column-title {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #3081c8;
+    font-size: 16px;
+    margin-top: 37px;
+  }
+  .table-value {
+    font-size: 14px;
+  }
+  .left-table-row-title {
+    font-size: 14px;
+  }
+  .map-xs {
+    min-height: 150px;
+  }
 }
 /*# sourceMappingURL=main.css.map */
