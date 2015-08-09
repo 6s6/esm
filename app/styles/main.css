@@ -6801,6 +6801,20 @@ h3.document-detail {
 .span-type {
   padding-top: 20px;
 }
+.select-last-update {
+  margin-left: 67px;
+  width: 150px;
+}
+.select-authority {
+  margin-left: 67px;
+  width: 150px;
+}
+.sspace {
+  height: 28px;
+}
+.s-last-document-field-column {
+  margin-left: 112px;
+}
 @media (max-width: 760px) {
   .label {
     display: block;
@@ -6904,6 +6918,20 @@ h3.document-detail {
   }
   .map-xs {
     min-height: 150px;
+  }
+  .select-last-update {
+    margin-left: 0px;
+    width: 120px;
+  }
+  .select-authority {
+    margin-left: 0px;
+    width: 120px;
+  }
+  .sspace {
+    height: 15px;
+  }
+  .s-last-document-field-column {
+    margin-left: 60px;
   }
 }
 /*# sourceMappingURL=main.css.map */
