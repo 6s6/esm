@@ -6919,19 +6919,50 @@ h3.document-detail {
   .map-xs {
     min-height: 150px;
   }
+  .slider-year {
+    width: 200px;
+  }
+  .slider-ip {
+    width: 200px;
+  }
   .select-last-update {
     margin-left: 0px;
-    width: 120px;
+    width: 200px;
   }
   .select-authority {
     margin-left: 0px;
-    width: 120px;
+    width: 200px;
+    margin-bottom: 20px;
   }
   .sspace {
-    height: 15px;
+    height: 25px;
   }
   .s-last-document-field-column {
     margin-left: 60px;
+  }
+  #collapseTheme > .col-xs-2 {
+    float: none;
+    margin-left: 100px;
+  }
+  #collapseProcess > .col-xs-2 {
+    float: none;
+    margin-left: 100px;
+  }
+  #collapseDocument > .col-xs-2 {
+    float: none;
+    margin-left: 100px;
+  }
+  #collapseDocument > .col-xs-3 {
+    float: none;
+    margin-left: 100px;
+  }
+  .checkbox {
+    min-height: 20px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    vertical-align: middle;
+    width: 200px;
   }
 }
 /*# sourceMappingURL=main.css.map */
