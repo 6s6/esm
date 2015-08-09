@@ -6839,7 +6839,7 @@ h3.document-detail {
     margin-top: 200px;
   }
 }
-@media (max-height: 600px) {
+@media (max-height: 700px) {
   .map-container-home {
     height: 200px;
     padding-bottom: 150px;
